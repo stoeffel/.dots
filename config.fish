@@ -63,3 +63,11 @@ function edit_command_buffer --description 'Edit the command buffer in an extern
 end
 
 fisher
+
+# PATHS
+source /usr/local/share/chruby/chruby.fish
+source /usr/local/share/chruby/auto.fish
+chruby ruby-2.3.3
+source ~/.private-stuff
+
+set -gx PATH ~/.local/bin  $PATH
