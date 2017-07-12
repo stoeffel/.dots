@@ -1,0 +1,6 @@
+# All units installed relative to the root.
+root: "~/"
+
+config_files
+  - src: brangelina.vim
+    dst: .brangelina.vim
