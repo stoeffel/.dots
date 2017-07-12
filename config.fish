@@ -1,23 +1,17 @@
-# fish_vi_key_bindings
 fish_default_key_bindings
+function fish_mode_prompt
+end
 
 # Rebound Ctrl behaves as Escape
 # xcape -e 'Control_L=Control_L|Escape'
+
+
+setenv EDITOR nvim
 
 # Aliases
 ##########
 
 alias v "nvim"
-
-# Git
-alias g "git"
-alias ga "git add"
-alias gaa "git add ."
-alias gac "git commit -a"
-alias gd "git difftool"
-alias gs "git status"
-alias gp "git push"
-alias gl "git pull --rebase"
 
 # NPM
 alias nr "npm run "

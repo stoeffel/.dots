@@ -8,6 +8,15 @@ config_files:
   - src: config.fish
     dst: .config/fish/config.fish
 
+  - src: fish/fish_user_key_bindings.fish
+    dst: .config/fish/functions/fish_user_key_bindings.fish
+
+  - src: fish/fzf_key_bindings.fish
+    dst: .config/fish/functions/fzf_key_bindings.fish
+
+  - src: fish/git.fish
+    dst: .config/fish/functions/git.fish
+
   - src: editorconfig
     dst: .editorconfig
 
