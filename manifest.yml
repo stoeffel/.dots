@@ -1,6 +1,18 @@
 # All units installed relative to the root.
 root: "~/"
 
-config_files
+config_files:
   - src: brangelina.vim
     dst: .brangelina.vim
+
+  - src: config.fish
+    dst: .config/fish/config.fish
+
+  - src: editorconfig
+    dst: .editorconfig
+
+  - src: gitconfig
+    dst: .gitconfig
+
+  - src: gitignore
+    dst: .gitignore
