@@ -1,6 +1,4 @@
 fish_default_key_bindings
-function fish_mode_prompt
-end
 
 # Rebound Ctrl behaves as Escape
 # xcape -e 'Control_L=Control_L|Escape'
