@@ -1,8 +1,11 @@
-if not set -q cgitc_initialized2
-  set -U cgitc_initialized2
+if not set -q cgitc_initialized1
+  set -U cgitc_initialized1
 
   # Abbrs
   abbr g 'git'
+  abbr a 'git add'
+  abbr all 'git add .'
+  abbr p 'git add -p'
   abbr c 'git commit'
   abbr co 'git checkout'
   abbr br 'git checkout -b'
