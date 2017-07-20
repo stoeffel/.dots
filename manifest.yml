@@ -14,9 +14,6 @@ config_files:
   - src: fish/fzf_key_bindings.fish
     dst: .config/fish/functions/fzf_key_bindings.fish
 
-  - src: fish/git.fish
-    dst: .config/fish/functions/git.fish
-
   - src: editorconfig
     dst: .editorconfig
 

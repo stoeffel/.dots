@@ -54,8 +54,8 @@ set background=dark
 colorscheme Tomorrow-Night-Blue
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:ale_linters = { 'elm': [] }
 " (5) Enjoy using branglina.vim. Issues and pull requests are welcome!
-
 set fillchars+=vert:\ "
 hi VertSplit ctermbg=NONE guibg=NONE
 

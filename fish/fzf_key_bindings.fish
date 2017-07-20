@@ -1,4 +1,14 @@
+
+# run jetpack on a given entry point
+function jetpack_dev
+  find app/assets/modules -type f | \
+  fzf --select-1 | \
+  xargs ./script/run-jetpack.sh --watch --entry
+end
+
 function fzf_key_bindings
+    bind \cj 'jetpack_dev'
+
     set -q FZF_LEGACY_KEYBINDINGS
     or set -l FZF_LEGACY_KEYBINDINGS 1
     if test "$FZF_LEGACY_KEYBINDINGS" -eq 1

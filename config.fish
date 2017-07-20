@@ -54,6 +54,32 @@ function edit_command_buffer --description 'Edit the command buffer in an extern
     command rm $f
 end
 
+if status --is-interactive
+  set -g fish_user_abbreviations
+
+  # Git
+  abbr -a g 'git'
+  abbr -a a 'git add'
+  abbr -a all 'git add .'
+  abbr -a p 'git add -p'
+  abbr -a c 'git commit'
+  abbr -a co 'git checkout'
+  abbr -a br 'git checkout -b'
+  abbr -a s 'git status'
+  abbr -a pull 'git pull --rebase'
+  abbr -a push 'git push'
+
+  # Elm
+  abbr -a ei 'elm-package install'
+  abbr -a em 'elm-make'
+  abbr -a et 'elm-test'
+
+  # scripts
+  abbr -a st './script/elm-test'
+  abbr -a sba './script/build-elm-assets.js'
+  abbr -a sbc './script/build-elm-css.sh'
+end
+
 fisher
 
 # PATHS
