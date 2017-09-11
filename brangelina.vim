@@ -15,11 +15,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'rakr/vim-two-firewatch'
   Plug 'morhetz/gruvbox'
   Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+  Plug 'dracula/vim'
 call plug#end()
 
 " (4) Configure the theme you want to use below.
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night_Blue',
+      \ 'colorscheme': 'Dracula',
       \ 'active': {
       \   'right': []
       \ },
@@ -51,10 +52,10 @@ set background=dark
 " let g:neosolarized_contrast = "high"
 " let g:neosolarized_visibility = "high"
 " colorscheme NeoSolarized
-colorscheme Tomorrow-Night-Blue
+colorscheme dracula
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-let g:ale_linters = { 'elm': [] }
+" let g:ale_linters = { 'elm': [] }
 " (5) Enjoy using branglina.vim. Issues and pull requests are welcome!
 set fillchars+=vert:\ "
 hi VertSplit ctermbg=NONE guibg=NONE

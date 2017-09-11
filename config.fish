@@ -68,6 +68,7 @@ if status --is-interactive
   abbr -a s 'git status'
   abbr -a pull 'git pull --rebase'
   abbr -a push 'git push'
+  abbr -a force 'git push --force-with-lease'
 
   # Elm
   abbr -a ei 'elm-package install'
@@ -80,7 +81,7 @@ if status --is-interactive
   abbr -a sbc './script/build-elm-css.sh'
 end
 
-fisher
+fisher -q
 
 # PATHS
 source /usr/local/share/chruby/chruby.fish
