@@ -20,7 +20,7 @@ call plug#end()
 
 " (4) Configure the theme you want to use below.
 let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'PaperColor',
       \ 'active': {
       \   'right': []
       \ },
@@ -44,7 +44,7 @@ let g:lightline.inactive = {
 let g:lightline.tabline = {
     \ 'left': [ [ 'tabs' ] ],
     \ 'right': [] }
-set background=dark
+set background=light
 " let g:neoterm_shell = 'zsh'
 " let g:neosolarized_bold = 1
 " let g:neosolarized_underline = 1
@@ -52,7 +52,7 @@ set background=dark
 " let g:neosolarized_contrast = "high"
 " let g:neosolarized_visibility = "high"
 " colorscheme NeoSolarized
-colorscheme dracula
+colorscheme PaperColor
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 " let g:ale_linters = { 'elm': [] }
