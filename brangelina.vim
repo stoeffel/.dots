@@ -10,17 +10,14 @@ call plug#begin('~/.vim/plugged')
   " (3) Add your custom plugins below.
   Plug 'iCyMind/NeoSolarized'
   Plug 'NLKNguyen/papercolor-theme'
-  Plug 'joshdick/onedark.vim'
-  Plug 'kamwitsta/flatwhite-vim'
-  Plug 'rakr/vim-two-firewatch'
-  Plug 'morhetz/gruvbox'
-  Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
   Plug 'dracula/vim'
+  Plug 'whatyouhide/vim-gotham'
+  Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " (4) Configure the theme you want to use below.
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'right': []
       \ },
@@ -44,15 +41,15 @@ let g:lightline.inactive = {
 let g:lightline.tabline = {
     \ 'left': [ [ 'tabs' ] ],
     \ 'right': [] }
-set background=light
+set background=dark
 " let g:neoterm_shell = 'zsh'
 " let g:neosolarized_bold = 1
 " let g:neosolarized_underline = 1
 " let g:neosolarized_italic = 1
 " let g:neosolarized_contrast = "high"
 " let g:neosolarized_visibility = "high"
-" colorscheme NeoSolarized
-colorscheme PaperColor
+let g:onedark_terminal_italics = 1
+colo onedark
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 " let g:ale_linters = { 'elm': [] }
