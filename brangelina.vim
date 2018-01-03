@@ -17,7 +17,7 @@ call plug#end()
 
 " (4) Configure the theme you want to use below.
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'right': []
       \ },
@@ -43,16 +43,15 @@ let g:lightline.tabline = {
     \ 'right': [] }
 set background=dark
 " let g:neoterm_shell = 'zsh'
-" let g:neosolarized_bold = 1
-" let g:neosolarized_underline = 1
-" let g:neosolarized_italic = 1
-" let g:neosolarized_contrast = "high"
-" let g:neosolarized_visibility = "high"
-let g:onedark_terminal_italics = 1
-colo onedark
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 1
+let g:neosolarized_italic = 1
+let g:neosolarized_contrast = "high"
+let g:neosolarized_visibility = "high"
+colo NeoSolarized
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-" let g:ale_linters = { 'elm': [] }
+let g:ale_linters = { 'elm': [] }
 " (5) Enjoy using branglina.vim. Issues and pull requests are welcome!
 set fillchars+=vert:\ "
 hi VertSplit ctermbg=NONE guibg=NONE
