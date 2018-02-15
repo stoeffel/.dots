@@ -1,6 +1,7 @@
 " Five steps to get started:
 
 " (1) Copy this file to ~/.config/nvim/init.vim
+"
 
 " (2) Replace this with a path to brangelina on your machine.
 source ~/brangelina/brangelina.vim
@@ -8,7 +9,7 @@ source ~/brangelina/brangelina.vim
 call plug#begin('~/.vim/plugged')
   call BrangelinaPlugins()
   " (3) Add your custom plugins below.
-  Plug 'iCyMind/NeoSolarized'
+  Plug 'lifepillar/vim-solarized8'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'dracula/vim'
   Plug 'whatyouhide/vim-gotham'
@@ -19,13 +20,18 @@ call plug#end()
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
-      \   'right': []
+      \   'right': [ [ 'gitbranch' ], [ 'readonly', 'modified', 'paste' ] ],
+      \   'left': [ [ 'filename'] ]
       \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \   'filename': 'LightlineFilename'
+      \ }
       \ }
 let g:lightline.mode_map = {
 		    \ 'n' : ' ',
-		    \ 'i' : '✏',
-		    \ 'R' : ' ',
+		    \ 'i' : ' ',
+        \ 'R' : ' ',
 		    \ 'v' : ' ',
 		    \ 'V' : ' ',
 		    \ "\<C-v>": ' ',
@@ -36,23 +42,20 @@ let g:lightline.mode_map = {
 		    \ 't': ' ',
 		    \ }
 let g:lightline.inactive = {
-    \ 'left': [ [ 'filename' ] ],
-    \ 'right': [] }
+    \   'right': [ [ 'readonly', 'modified', 'paste' ] ],
+    \   'left': [ [ 'filename'] ] }
 let g:lightline.tabline = {
     \ 'left': [ [ 'tabs' ] ],
     \ 'right': [] }
+function! LightlineFilename()
+  return expand('%:t') ==# '' ? '[No Name]' : expand('%:p:h:t') . '/' . expand('%:t')
+endfunction
 set background=dark
-" let g:neoterm_shell = 'zsh'
-let g:neosolarized_bold = 1
-let g:neosolarized_underline = 1
-let g:neosolarized_italic = 1
-let g:neosolarized_contrast = "high"
-let g:neosolarized_visibility = "high"
-colo NeoSolarized
-
+colo solarized8_flat
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-let g:ale_linters = { 'elm': [] }
 " (5) Enjoy using branglina.vim. Issues and pull requests are welcome!
-set fillchars+=vert:\ "
+" set fillchars+=vert:\ "
 hi VertSplit ctermbg=NONE guibg=NONE
-
+let g:neoformat_enabled_json = []
+let g:neoformat_enabled_ruby = []
+let g:ale_linters = { 'elm': [] }
