@@ -9,7 +9,7 @@ setenv EDITOR nvim
 # Aliases
 ##########
 
-alias v "nvim"
+alias v "vim"
 
 # NPM
 alias nr "npm run "
@@ -22,7 +22,7 @@ alias ns "npm run-script "
 # List
 alias l "ls -lah"
 
-set -U FZF_FIND_FILE_COMMAND "ag -l --ignore .git"
+set -U FZF_FIND_FILE_COMMAND "rg --files"
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 # The ale vim plugin requires this.
@@ -42,7 +42,7 @@ function edit_command_buffer --description 'Edit the command buffer in an extern
     end
 
     set -l p (commandline -C)
-    commandline -b > $f
+    commandline -b >$f
     if set -q EDITOR
         eval $EDITOR $f
     else
@@ -55,30 +55,30 @@ function edit_command_buffer --description 'Edit the command buffer in an extern
 end
 
 if status --is-interactive
-  set -g fish_user_abbreviations
+    set -g fish_user_abbreviations
 
-  # Git
-  abbr -a g 'git'
-  abbr -a a 'git add'
-  abbr -a all 'git add .'
-  abbr -a p 'git add -p'
-  abbr -a c 'git commit'
-  abbr -a co 'git checkout'
-  abbr -a br 'git checkout -b'
-  abbr -a s 'git status'
-  abbr -a pull 'git pull --rebase'
-  abbr -a push 'git push'
-  abbr -a force 'git push --force-with-lease'
+    # Git
+    abbr -a g 'git'
+    abbr -a a 'git add'
+    abbr -a all 'git add .'
+    abbr -a p 'git add -p'
+    abbr -a c 'git commit'
+    abbr -a co 'git checkout'
+    abbr -a br 'git checkout -b'
+    abbr -a s 'git status'
+    abbr -a pull 'git pull --rebase'
+    abbr -a push 'git push'
+    abbr -a force 'git push --force-with-lease'
 
-  # Elm
-  abbr -a ei 'elm-package install'
-  abbr -a em 'elm-make'
-  abbr -a et 'elm-test'
+    # Elm
+    abbr -a ei 'elm-package install'
+    abbr -a em 'elm-make'
+    abbr -a et 'elm-test'
 
-  # scripts
-  abbr -a st './script/elm-test'
-  abbr -a sba './script/build-elm-assets.js'
-  abbr -a sbc './script/build-elm-css.sh'
+    # scripts
+    abbr -a st './script/elm-test'
+    abbr -a sba './script/build-elm-assets.js'
+    abbr -a sbc './script/build-elm-css.sh'
 end
 
 fisher -q
@@ -89,4 +89,4 @@ source /usr/local/share/chruby/auto.fish
 chruby ruby-2.3.3
 source ~/.private-stuff
 
-set -gx PATH ~/.local/bin  $PATH
+set -gx PATH ~/.local/bin $PATH

@@ -5,6 +5,9 @@ config_files:
   - src: brangelina.vim
     dst: .brangelina.vim
 
+  - src: brangelina.vim
+    dst: .vimrc
+
   - src: config.fish
     dst: .config/fish/config.fish
 

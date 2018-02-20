@@ -10,10 +10,6 @@ call plug#begin('~/.vim/plugged')
   call BrangelinaPlugins()
   " (3) Add your custom plugins below.
   Plug 'lifepillar/vim-solarized8'
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'dracula/vim'
-  Plug 'whatyouhide/vim-gotham'
-  Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " (4) Configure the theme you want to use below.
@@ -52,10 +48,9 @@ function! LightlineFilename()
 endfunction
 set background=dark
 colo solarized8_flat
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files'
 " (5) Enjoy using branglina.vim. Issues and pull requests are welcome!
-" set fillchars+=vert:\ "
+set fillchars+=vert:\ "
 hi VertSplit ctermbg=NONE guibg=NONE
 let g:neoformat_enabled_json = []
 let g:neoformat_enabled_ruby = []
-let g:ale_linters = { 'elm': [] }
