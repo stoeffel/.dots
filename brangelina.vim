@@ -10,11 +10,12 @@ call plug#begin('~/.vim/plugged')
   call BrangelinaPlugins()
   " (3) Add your custom plugins below.
   Plug 'lifepillar/vim-solarized8'
+  Plug 'whatyouhide/vim-gotham'
 call plug#end()
 
 " (4) Configure the theme you want to use below.
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'gotham',
       \ 'active': {
       \   'right': [ [ 'gitbranch' ], [ 'readonly', 'modified', 'paste' ] ],
       \   'left': [ [ 'filename'] ]
@@ -47,7 +48,7 @@ function! LightlineFilename()
   return expand('%:t') ==# '' ? '[No Name]' : expand('%:p:h:t') . '/' . expand('%:t')
 endfunction
 set background=dark
-colo solarized8_flat
+colo gotham
 let $FZF_DEFAULT_COMMAND = 'rg --files'
 " (5) Enjoy using branglina.vim. Issues and pull requests are welcome!
 set fillchars+=vert:\ "
