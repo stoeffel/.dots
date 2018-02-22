@@ -16,6 +16,8 @@ call plug#end()
 " (4) Configure the theme you want to use below.
 let g:lightline = {
       \ 'colorscheme': 'gotham',
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {
       \   'right': [ [ 'gitbranch' ], [ 'readonly', 'modified', 'paste' ] ],
       \   'left': [ [ 'filename'] ]
@@ -55,3 +57,5 @@ set fillchars+=vert:\ "
 hi VertSplit ctermbg=NONE guibg=NONE
 let g:neoformat_enabled_json = []
 let g:neoformat_enabled_ruby = []
+let g:neoformat_enabled_sass = []
+let g:ale_linters = { 'ruby': [] }
