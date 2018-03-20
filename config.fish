@@ -1,5 +1,8 @@
-fish_default_key_bindings
-
+if not test -f ~/.config/fish/functions/fisher.fish
+    echo "Installing fisherman for the first time"
+    curl -sLo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+    fisher
+end
 # Rebound Ctrl behaves as Escape
 # xcape -e 'Control_L=Control_L|Escape'
 
@@ -9,7 +12,7 @@ setenv EDITOR nvim
 # Aliases
 ##########
 
-alias v "vim"
+alias v "nvim"
 
 # NPM
 alias nr "npm run "
@@ -81,8 +84,6 @@ if status --is-interactive
     abbr -a sbc './script/build-elm-css.sh'
 end
 
-fisher -q
-
 # PATHS
 source /usr/local/share/chruby/chruby.fish
 source /usr/local/share/chruby/auto.fish
@@ -90,3 +91,4 @@ chruby ruby-2.3.3
 source ~/.private-stuff
 
 set -gx PATH ~/.local/bin $PATH
+source ~/.private-stuff

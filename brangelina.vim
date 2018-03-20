@@ -11,11 +11,16 @@ call plug#begin('~/.vim/plugged')
   " (3) Add your custom plugins below.
   Plug 'lifepillar/vim-solarized8'
   Plug 'whatyouhide/vim-gotham'
+  Plug 'junegunn/goyo.vim'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'cocopon/iceberg.vim'
+  Plug 'morhetz/gruvbox'
+  Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " (4) Configure the theme you want to use below.
 let g:lightline = {
-      \ 'colorscheme': 'gotham',
+      \ 'colorscheme': 'onedark',
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {
@@ -50,7 +55,8 @@ function! LightlineFilename()
   return expand('%:t') ==# '' ? '[No Name]' : expand('%:p:h:t') . '/' . expand('%:t')
 endfunction
 set background=dark
-colo gotham
+let g:onedark_termcolors=256
+colo onedark
 let $FZF_DEFAULT_COMMAND = 'rg --files'
 " (5) Enjoy using branglina.vim. Issues and pull requests are welcome!
 set fillchars+=vert:\ "
