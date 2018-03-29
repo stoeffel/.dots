@@ -15,8 +15,8 @@ call plug#end()
 " (4) Configure the theme you want to use below.
 let g:lightline = {
       \ 'colorscheme': 'solarized',
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {
       \   'right': [ [ 'gitbranch' ], [ 'readonly', 'modified', 'paste' ] ],
       \   'left': [ [ 'filename'] ]
@@ -65,11 +65,12 @@ highlight clear ALEWarningSign
 
 " ONI
 if exists('g:gui_oni')
-  set bg=dark
+  set bg=light
   set clipboard&
   set list
   set listchars=trail:·
 else
-  colo solarized8_dark
+  set bg=dark
+  colo solarized8_dark_flat
 endif
 
