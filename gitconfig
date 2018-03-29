@@ -23,7 +23,7 @@
 protocol = https
 [core]
 	excludesfile = /Users/stoeffel/.gitignore
-editor = nvim
+editor = ~/bin/nvim-terminal-edit
 [diff]
 tool=vimdiff
 [difftool "sourcetree"]

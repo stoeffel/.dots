@@ -10,17 +10,11 @@ call plug#begin('~/.vim/plugged')
   call BrangelinaPlugins()
   " (3) Add your custom plugins below.
   Plug 'lifepillar/vim-solarized8'
-  Plug 'whatyouhide/vim-gotham'
-  Plug 'junegunn/goyo.vim'
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'cocopon/iceberg.vim'
-  Plug 'morhetz/gruvbox'
-  Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " (4) Configure the theme you want to use below.
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'solarized',
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {
@@ -54,9 +48,7 @@ let g:lightline.tabline = {
 function! LightlineFilename()
   return expand('%:t') ==# '' ? '[No Name]' : expand('%:p:h:t') . '/' . expand('%:t')
 endfunction
-set background=dark
-let g:onedark_termcolors=256
-colo onedark
+let $FZF_DEFAULT_OPTS .= ' --no-height'
 let $FZF_DEFAULT_COMMAND = 'rg --files'
 " (5) Enjoy using branglina.vim. Issues and pull requests are welcome!
 set fillchars+=vert:\ "
@@ -64,4 +56,20 @@ hi VertSplit ctermbg=NONE guibg=NONE
 let g:neoformat_enabled_json = []
 let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
-let g:ale_linters = { 'ruby': [] }
+let g:ale_linters = { 'ruby': [], 'haskell': [ 'stack-build' ], 'elm': [] }
+let g:neoterm_shell = 'fish'
+highlight SignColumn guibg=transparent
+highlight LineNr guibg=transparent
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
+" ONI
+if exists('g:gui_oni')
+  set bg=dark
+  set clipboard&
+  set list
+  set listchars=trail:·
+else
+  colo solarized8_dark
+endif
+

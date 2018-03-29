@@ -7,12 +7,12 @@ end
 # xcape -e 'Control_L=Control_L|Escape'
 
 
-setenv EDITOR nvim
+setenv EDITOR ~/bin/nvim-terminal-edit
 
 # Aliases
 ##########
 
-alias v "nvim"
+alias v "~/bin/nvim-terminal-edit"
 
 # NPM
 alias nr "npm run "

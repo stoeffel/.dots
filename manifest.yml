@@ -22,3 +22,6 @@ config_files:
 
   - src: gitignore
     dst: .gitignore
+
+  - src: ./nvim-terminal-edit.py
+    dst: ./bin/nvim-terminal-edit
