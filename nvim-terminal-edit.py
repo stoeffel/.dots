@@ -24,8 +24,11 @@ def _setup():
     nvim.command('au BufEnter <buffer> call rpcnotify({0}, "n")'.format(chid))
     nvim.command('au BufEnter <buffer> startinsert'.format(chid))
     nvim.command('augroup END')
-    nvim.vars['files_to_edit'] = args
-    for x in args:
+    cwd = os.getcwd()
+    abs_args = [os.path.join(cwd, x) for x in args]
+    nvim.vars['files_to_edit'] =  abs_args
+
+    for x in abs_args:
         nvim.command('exe "drop ".remove(g:files_to_edit, 0)')
 
 
