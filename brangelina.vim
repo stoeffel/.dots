@@ -71,6 +71,6 @@ if exists('g:gui_oni')
   set listchars=trail:·
 else
   set bg=dark
-  colo solarized8_dark_flat
+  colo solarized8_dark_low
 endif
 
