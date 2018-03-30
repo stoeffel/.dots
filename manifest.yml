@@ -25,3 +25,6 @@ config_files:
 
   - src: ./nvim-terminal-edit.py
     dst: ./bin/nvim-terminal-edit
+
+  - src: ./install.sh
+    dst: .local/bin/dots
