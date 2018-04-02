@@ -1,3 +1,5 @@
 #!/usr/local/bin/fish
 
-curate install -v; and fisher up
+cd ~/.dots;
+curate install -v;
+fisher up;
