@@ -22,11 +22,23 @@ function! s:fzf_statusline()
 endfunction
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
-let g:ale_linters = { 'ruby': [], 'haskell': [ 'stack-build' ]}
-let g:fzf_layout = { 'up': '40%' }
+let g:startify_lists = [
+      \ { 'type': 'sessions',  'header': [   'Sessions']       },
+      \ { 'type': 'files',     'header': [   'MRU']            },
+      \ { 'type': 'commands',  'header': [   'Commands']       },
+      \ ]
+let g:ale_linters = { 'ruby': [], 'haskell': [ 'stack-build' ], 'elm': [] }
+let g:fzf_layout = { 'window': '-tabnew' }
+let $FZF_DEFAULT_COMMAND = 'rg --files'
 let g:neoformat_enabled_json = []
 let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoterm_shell = 'fish'
 set bg=dark
+let g:nord_italic_comments = 1
+let g:nord_uniform_status_lines = 1
+let g:airline_theme = 'nord'
+let g:nord_comment_brightness = 20
+let g:nord_uniform_diff_background = 1
+let g:airline_powerline_fonts = 1
 colo nord
