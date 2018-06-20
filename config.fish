@@ -12,7 +12,7 @@ setenv EDITOR ~/bin/nvim-terminal-edit
 # Aliases
 ##########
 
-alias v "~/bin/nvim-terminal-edit"
+alias v "nvim"
 
 # NPM
 alias nr "npm run "

@@ -14,6 +14,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'rakr/vim-one'
   Plug 'w0ng/vim-hybrid'
   Plug 'whatyouhide/vim-gotham'
+  Plug 'atelierbram/Base2Tone-vim'
+  Plug 'trevordmiller/nova-vim'
 call plug#end()
 
 function! s:fzf_statusline()
@@ -27,18 +29,27 @@ let g:startify_lists = [
       \ { 'type': 'files',     'header': [   'MRU']            },
       \ { 'type': 'commands',  'header': [   'Commands']       },
       \ ]
-let g:ale_linters = { 'ruby': [], 'haskell': [ 'stack-build' ], 'elm': [] }
+let g:ale_linters = { 'ruby': [], 'haskell': [], 'elm': [] }
+
 let g:fzf_layout = { 'window': '-tabnew' }
 let $FZF_DEFAULT_COMMAND = 'rg --files'
+
+let g:notes_directories = '~/notes'
+
 let g:neoformat_enabled_json = []
 let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoterm_shell = 'fish'
-set bg=dark
+
+" NORD
 let g:nord_italic_comments = 1
 let g:nord_uniform_status_lines = 1
 let g:airline_theme = 'nord'
 let g:nord_comment_brightness = 20
 let g:nord_uniform_diff_background = 1
-let g:airline_powerline_fonts = 1
-colo nord
+
+" AIRLINE
+let g:airline_theme='papercolor'
+let g:airline#extensions#tabline#show_buffers = 0
+set bg=light
+colo papercolor
