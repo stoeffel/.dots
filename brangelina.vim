@@ -41,15 +41,8 @@ let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoterm_shell = 'fish'
 
-" NORD
-let g:nord_italic_comments = 1
-let g:nord_uniform_status_lines = 1
-let g:airline_theme = 'nord'
-let g:nord_comment_brightness = 20
-let g:nord_uniform_diff_background = 1
-
 " AIRLINE
-let g:airline_theme='papercolor'
+let g:airline_theme='monochrome'
 let g:airline#extensions#tabline#show_buffers = 0
-set bg=light
-colo papercolor
+set bg=dark
+colo solarized8_flat

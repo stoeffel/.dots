@@ -1,0 +1,22 @@
+{
+  "name": "dots",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stoeffel/.dots.git"
+  },
+  "author": "schtoeffel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stoeffel/.dots/issues"
+  },
+  "homepage": "https://github.com/stoeffel/.dots#readme",
+  "devDependencies": {
+    "@rxrc/curator": "^1.0.0"
+  }
+}

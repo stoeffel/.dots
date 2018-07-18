@@ -1,5 +1,5 @@
 #!/usr/local/bin/fish
 
 cd ~/.dots;
-curate install -v;
+npx curator;
 fisher up;

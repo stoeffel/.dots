@@ -7,7 +7,7 @@ end
 # xcape -e 'Control_L=Control_L|Escape'
 
 
-setenv EDITOR ~/bin/nvim-terminal-edit
+setenv EDITOR nvim
 
 # Aliases
 ##########
