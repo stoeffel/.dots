@@ -3,6 +3,7 @@ source ~/brangelina/brangelina.vim
 call plug#begin('~/.vim/plugged')
   call BrangelinaPlugins()
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'herrbischoff/cobalt2.vim'
   Plug 'arcticicestudio/nord-vim'
   Plug 'challenger-deep-theme/vim'
   Plug 'chriskempson/base16-vim'
@@ -16,6 +17,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'whatyouhide/vim-gotham'
   Plug 'atelierbram/Base2Tone-vim'
   Plug 'trevordmiller/nova-vim'
+  Plug 'icymind/NeoSolarized'
+  Plug 'ayu-theme/ayu-vim'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'ayu-theme/ayu-vim-airline'
+  Plug 'logico-dev/typewriter'
+  Plug 'trevordmiller/nova-vim'
+  Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'atelierbram/Base2Tone-vim'
 call plug#end()
 
 function! s:fzf_statusline()
@@ -43,6 +52,6 @@ let g:neoterm_shell = 'fish'
 
 " AIRLINE
 let g:airline_theme='monochrome'
-let g:airline#extensions#tabline#show_buffers = 0
-set bg=dark
+set bg=light
 colo solarized8_flat
+let g:airline#extensions#tabline#show_buffers = 0

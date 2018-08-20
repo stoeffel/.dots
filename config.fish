@@ -9,6 +9,8 @@ end
 
 setenv EDITOR nvim
 
+eval (direnv hook fish)
+
 # Aliases
 ##########
 
@@ -57,6 +59,10 @@ function edit_command_buffer --description 'Edit the command buffer in an extern
     command rm $f
 end
 
+function nix-shell --description 'Start a nix shell from fish'
+    bash --init-file /etc/bashrc -ci 'nix-shell'
+end
+
 if status --is-interactive
     set -g fish_user_abbreviations
 
@@ -84,6 +90,7 @@ if status --is-interactive
     abbr -a sbc './script/build-elm-css.sh'
 end
 
+
 # PATHS
 source /usr/local/share/chruby/chruby.fish
 source /usr/local/share/chruby/auto.fish
@@ -92,3 +99,6 @@ source ~/.private-stuff
 
 set -gx PATH ~/.local/bin $PATH
 source ~/.private-stuff
+
+test -e {$HOME}/.iterm2_shell_integration.fish
+and source {$HOME}/.iterm2_shell_integration.fish

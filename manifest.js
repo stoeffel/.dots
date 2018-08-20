@@ -10,7 +10,8 @@ const files = [
   {
     src: "gitconfig",
     dst: ".gitconfig"
-  }]
+  }
+];
 const symlinks = [
   {
     dst: ".dots/brangelina.vim",
