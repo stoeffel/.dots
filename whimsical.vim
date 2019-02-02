@@ -1,11 +1,11 @@
-source ~/brangelina/brangelina.vim
+source ~/whimsical/whimsical.vim
 
 call plug#begin('~/.vim/plugged')
-  call BrangelinaPlugins()
+  call WhimsicalPlugins()
+  Plug 'tyrannicaltoucan/vim-deep-space'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'herrbischoff/cobalt2.vim'
   Plug 'arcticicestudio/nord-vim'
-  Plug 'challenger-deep-theme/vim'
   Plug 'chriskempson/base16-vim'
   Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
   Plug 'lifepillar/vim-solarized8'
@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'rakr/vim-one'
   Plug 'w0ng/vim-hybrid'
   Plug 'whatyouhide/vim-gotham'
-  Plug 'atelierbram/Base2Tone-vim'
   Plug 'trevordmiller/nova-vim'
   Plug 'icymind/NeoSolarized'
   Plug 'ayu-theme/ayu-vim'
@@ -25,6 +24,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'trevordmiller/nova-vim'
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'atelierbram/Base2Tone-vim'
+  Plug 'marcelbeumer/spacedust.vim'
+  Plug 'vmchale/dhall-vim'
+  Plug 'andreypopp/vim-colors-plain'
+  Plug 'DankNeon/vim'
+  Plug 'abnt713/vim-hashpunk'
+  Plug 'tpope/vim-flagship'
 call plug#end()
 
 function! s:fzf_statusline()
@@ -50,8 +55,14 @@ let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoterm_shell = 'fish'
 
+set bg=dark
+colo hashpunk
 " AIRLINE
-let g:airline_theme='monochrome'
-set bg=light
-colo solarized8_flat
-let g:airline#extensions#tabline#show_buffers = 0
+let g:airline_theme='base16'
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#default#layout = [
+    \ [ 'c' ],
+    \ []
+    \ ]
+set showtabline=0

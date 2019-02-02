@@ -14,12 +14,16 @@ const files = [
 ];
 const symlinks = [
   {
-    dst: ".dots/brangelina.vim",
-    src: ".brangelina.vim"
+    dst: ".dots/whimsical.vim",
+    src: ".whimsical.vim"
   },
   {
-    dst: ".dots/brangelina.vim",
+    dst: ".dots/whimsical.vim",
     src: ".vimrc"
+  },
+  {
+    dst: ".dots/whimsical.vim",
+    src: ".config/nvim/init.vim"
   },
   {
     dst: ".dots/config.fish",

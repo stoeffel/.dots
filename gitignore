@@ -36,3 +36,4 @@ elm.js
 *.ibc
 *.idr~
 Procfile.custom
+.direnv.cache
