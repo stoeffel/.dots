@@ -2,6 +2,7 @@ source ~/whimsical/whimsical.vim
 
 call plug#begin('~/.vim/plugged')
   call WhimsicalPlugins()
+  Plug 'connorholyday/vim-snazzy'
   Plug 'tyrannicaltoucan/vim-deep-space'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'herrbischoff/cobalt2.vim'
@@ -30,6 +31,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'DankNeon/vim'
   Plug 'abnt713/vim-hashpunk'
   Plug 'tpope/vim-flagship'
+  Plug 'DankNeon/vim'
+  Plug 'KKPMW/distilled-vim'
 call plug#end()
 
 function! s:fzf_statusline()
@@ -56,7 +59,8 @@ let g:neoformat_enabled_sass = []
 let g:neoterm_shell = 'fish'
 
 set bg=dark
-colo hashpunk
+colo NeoSolarized
+
 " AIRLINE
 let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 0
@@ -66,3 +70,6 @@ let g:airline#extensions#default#layout = [
     \ []
     \ ]
 set showtabline=0
+set nonumber
+hi Normal guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=transparent

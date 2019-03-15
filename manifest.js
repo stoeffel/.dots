@@ -48,6 +48,14 @@ const symlinks = [
   {
     dst: ".dots/install.sh",
     src: ".local/bin/dots"
+  },
+  {
+    dst: ".dots/zsh_plugins.txt",
+    src: ".zsh_plugins.txt"
+  },
+  {
+    dst: ".dots/zshrc",
+    src: ".zshrc"
   }
 ];
 

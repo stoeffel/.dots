@@ -27,9 +27,6 @@ alias ns "npm run-script "
 # List
 alias l "ls -lah"
 
-set -U FZF_FIND_FILE_COMMAND "rg --files"
-set -U FZF_LEGACY_KEYBINDINGS 0
-
 # The ale vim plugin requires this.
 if not set -q TMPDIR
     set -gx TMPDIR /tmp
