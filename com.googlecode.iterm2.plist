@@ -34,6 +34,7 @@
 	<integer>1</integer>
 	<key>Coprocess MRU</key>
 	<array>
+		<string>echo nvim -u ~/.vimrc /Users/stoeffel/src/monolith/log/capybara/screenshot_2019-04-04-15-28-20.536.png</string>
 		<string>echo nvim -u ~/.vimrc /Users/stoeffel/src/monolith/log/capybara/screenshot_2019-03-13-12-32-42.174.html</string>
 		<string>echo nvim -u ~/.vimrc /Users/stoeffel/src/monolith/log/capybara/screenshot_2019-03-13-11-21-07.305.png</string>
 		<string>echo nvim -u ~/.vimrc /Users/stoeffel/src/monolith/log/capybara/screenshot_2019-03-13-11-10-17.538.png</string>
@@ -53,7 +54,6 @@
 		<string>echo nvim -u ~/.vimrc /Users/stoeffel/nri/NoRedInk/app/views/layouts/student.html.haml</string>
 		<string>echo nvim -u ~/.vimrc /Users/stoeffel/nri/NoRedInk/app/models/writing_cycle.rb</string>
 		<string>echo nvim -u ~/.vimrc /Users/stoeffel/nri/NoRedInk/app/assets/javascripts/Page/Teach/WritingCycles/Results/Student/Update.elm</string>
-		<string>echo nvim -u ~/.vimrc /Users/stoeffel/nri/NoRedInk/app/assets/javascripts/Component/Student/Results/View/ResultCell.elm</string>
 	</array>
 	<key>CopyLastNewline</key>
 	<false/>
@@ -19059,7 +19059,7 @@ Resize Split Pane.Move Divider Left</string>
 	<key>NSColorPickerSlidersDefaults</key>
 	<string>3</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Downloads</string>
+	<string>~/Downloads/pink dust</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSNavPanelExpandedStateForSaveMode</key>
@@ -19112,7 +19112,7 @@ Resize Split Pane.Move Divider Left</string>
 	<key>NSWindow Frame Preferences</key>
 	<string>996 721 606 456 0 0 1920 1177 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>640 673 400 129 0 0 1680 1027 </string>
+	<string>512 928 400 129 0 0 2560 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>490 303 700 622 0 0 1680 1027 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
@@ -19141,208 +19141,208 @@ Resize Split Pane.Move Divider Left</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.15043455362319946</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.11364022642374039</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.098092325031757355</real>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.27334880828857422</real>
+				<real>0.39623236656188965</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.26170071959495544</real>
+				<real>0.34883123636245728</real>
 				<key>Red Component</key>
-				<real>0.98747438192367554</real>
+				<real>0.91579008102416992</real>
 			</dict>
 			<key>Ansi 10 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.48438894748687744</real>
+				<real>0.2125059962272644</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.98277664184570312</real>
+				<real>0.89572525024414062</real>
 				<key>Red Component</key>
-				<real>0.31426474452018738</real>
+				<real>0.75547391176223755</real>
 			</dict>
 			<key>Ansi 11 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.54832202196121216</real>
+				<real>0.42900845408439636</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.98275065422058105</real>
+				<real>0.8526080846786499</real>
 				<key>Red Component</key>
-				<real>0.9424901008605957</real>
+				<real>0.99696123600006104</real>
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.99877303838729858</real>
+				<real>1</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.72887319326400757</real>
+				<real>0.3333333432674408</real>
 				<key>Red Component</key>
-				<real>0.28794747591018677</real>
+				<real>0.3333333432674408</real>
 			</dict>
 			<key>Ansi 13 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.70531737804412842</real>
+				<real>1</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.29879066348075867</real>
+				<real>0.3333333432674408</real>
 				<key>Red Component</key>
-				<real>0.98751437664031982</real>
+				<real>1</real>
 			</dict>
 			<key>Ansi 14 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.9942852258682251</real>
+				<real>0.85399079322814941</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.91508829593658447</real>
+				<real>1</real>
 				<key>Red Component</key>
-				<real>0.54558646678924561</real>
+				<real>0.59891355037689209</real>
 			</dict>
 			<key>Ansi 15 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.92636489868164062</real>
+				<real>1</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.93136489391326904</real>
+				<real>1</real>
 				<key>Red Component</key>
-				<real>0.93123704195022583</real>
+				<real>1</real>
 			</dict>
 			<key>Ansi 2 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.48438894748687744</real>
+				<real>0.42021769285202026</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.98277664184570312</real>
+				<real>0.8939167857170105</real>
 				<key>Red Component</key>
-				<real>0.31426474452018738</real>
+				<real>0.68026846647262573</real>
 			</dict>
 			<key>Ansi 3 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.54832202196121216</real>
+				<real>0.32882121205329895</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.98275065422058105</real>
+				<real>0.76124393939971924</real>
 				<key>Red Component</key>
-				<real>0.9424901008605957</real>
+				<real>0.99501991271972656</real>
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.99877303838729858</real>
+				<real>0.81518304347991943</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.72887319326400757</real>
+				<real>0.56830525398254395</real>
 				<key>Red Component</key>
-				<real>0.28794747591018677</real>
+				<real>0.17739157378673553</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.70531737804412842</real>
+				<real>0.99925696849822998</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.29879066348075867</real>
+				<real>0.68177640438079834</real>
 				<key>Red Component</key>
-				<real>0.98751437664031982</real>
+				<real>0.78977584838867188</real>
 			</dict>
 			<key>Ansi 6 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.9942852258682251</real>
+				<real>0.75082588195800781</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.91508829593658447</real>
+				<real>0.88813728094100952</real>
 				<key>Red Component</key>
-				<real>0.54558646678924561</real>
+				<real>0.52479046583175659</real>
 			</dict>
 			<key>Ansi 7 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.92636489868164062</real>
+				<real>0.73333334922790527</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.93136489391326904</real>
+				<real>0.73333334922790527</real>
 				<key>Red Component</key>
-				<real>0.93123704195022583</real>
+				<real>0.73333334922790527</real>
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.33335328102111816</real>
+				<real>0.33333333333333331</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.3333476185798645</real>
+				<real>0.33333333333333331</real>
 				<key>Red Component</key>
-				<real>0.33335760235786438</real>
+				<real>0.33333333333333331</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.27334880828857422</real>
+				<real>0.39623236656188965</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.26170071959495544</real>
+				<real>0.34883123636245728</real>
 				<key>Red Component</key>
-				<real>0.98747438192367554</real>
+				<real>0.91579008102416992</real>
 			</dict>
 			<key>Automatically Log</key>
 			<false/>
@@ -19353,18 +19353,16 @@ Resize Split Pane.Move Divider Left</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.15977835655212402</real>
+				<real>0.15043455362319946</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.12215268611907959</real>
+				<real>0.11364022642374039</real>
 				<key>Red Component</key>
-				<real>0.1176580935716629</real>
+				<real>0.098092325031757355</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>
-			<key>Background Image Location</key>
-			<string>/Users/stoeffel/Downloads/dark-honeycomb/dark-honeycomb.png</string>
 			<key>Background Image Mode</key>
 			<integer>1</integer>
 			<key>Badge Color</key>
@@ -19381,7 +19379,7 @@ Resize Split Pane.Move Divider Left</string>
 				<real>1</real>
 			</dict>
 			<key>Blend</key>
-			<real>0.45891088112113398</real>
+			<real>1</real>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -19395,13 +19393,13 @@ Resize Split Pane.Move Divider Left</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.96353918313980103</real>
+				<real>0.87602925300598145</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.96352285146713257</real>
+				<real>0.97522366046905518</real>
 				<key>Red Component</key>
-				<real>0.96355170011520386</real>
+				<real>0.9995187520980835</real>
 			</dict>
 			<key>Character Encoding</key>
 			<integer>4</integer>
@@ -19418,13 +19416,13 @@ Resize Split Pane.Move Divider Left</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.89585196971893311</real>
+				<real>0.32882121205329895</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.89585232734680176</real>
+				<real>0.76124393939971924</real>
 				<key>Red Component</key>
-				<real>0.89585232734680176</real>
+				<real>0.99501991271972656</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
@@ -19444,13 +19442,13 @@ Resize Split Pane.Move Divider Left</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.15977835655212402</real>
+				<real>1</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.12215268611907959</real>
+				<real>1</real>
 				<key>Red Component</key>
-				<real>0.1176580935716629</real>
+				<real>1</real>
 			</dict>
 			<key>Cursor Type</key>
 			<integer>2</integer>
@@ -19475,13 +19473,13 @@ Resize Split Pane.Move Divider Left</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.90218889713287354</real>
+				<real>0.76499247550964355</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.92725068330764771</real>
+				<real>0.80803596973419189</real>
 				<key>Red Component</key>
-				<real>0.9216761589050293</real>
+				<real>0.81610292196273804</real>
 			</dict>
 			<key>Guid</key>
 			<string>1A23DDBA-26C2-471C-98B2-01BBCE98AA1A</string>
@@ -19490,7 +19488,7 @@ Resize Split Pane.Move Divider Left</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
 			<key>Icon</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Text</key>
@@ -19792,18 +19790,18 @@ Resize Split Pane.Move Divider Left</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.82339191436767578</real>
+				<real>0.81507468223571777</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.6027643084526062</real>
+				<real>0.50115799903869629</real>
 				<key>Red Component</key>
-				<real>0.24144099652767181</real>
+				<real>0.076810121536254883</real>
 			</dict>
 			<key>Log Directory</key>
 			<string></string>
 			<key>Minimum Contrast</key>
-			<real>0.065862341772151903</real>
+			<real>0.086325765067606447</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -19843,26 +19841,26 @@ Resize Split Pane.Move Divider Left</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.76499247550964355</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.80803596973419189</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.81610292196273804</real>
 			</dict>
 			<key>Selection Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.77537858486175537</real>
+				<real>0.2151186466217041</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.68074733018875122</real>
+				<real>0.1748567670583725</real>
 				<key>Red Component</key>
-				<real>0.50582021474838257</real>
+				<real>0.14516641199588776</real>
 			</dict>
 			<key>Semantic History</key>
 			<dict>
@@ -20134,7 +20132,7 @@ Resize Split Pane.Move Divider Left</string>
 								<key>base: priority</key>
 								<real>5</real>
 								<key>format</key>
-								<string>HH:mm</string>
+								<string>HH:mm - dd.MM</string>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
@@ -20167,7 +20165,7 @@ Resize Split Pane.Move Divider Left</string>
 			<key>Terminal Type</key>
 			<string>xterm-256color-italic</string>
 			<key>Transparency</key>
-			<real>0.040153077411167547</real>
+			<real>0.0</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unicode Version</key>
@@ -20187,7 +20185,7 @@ Resize Split Pane.Move Divider Left</string>
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Use Tab Color</key>
-			<false/>
+			<true/>
 			<key>Use Underline Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
@@ -20213,16 +20211,16 @@ Resize Split Pane.Move Divider Left</string>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{538, 814}</string>
+		<string>{133, 866}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>0F3639F9-B6E8-42B7-A4E5-03609F1C84BC</string>
 	<key>NoSyncLastTipTime</key>
-	<real>574247920.761482</real>
+	<real>574607076.87554598</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>37</integer>
+	<integer>58</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>570618164.12607706</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -20988,6 +20986,9 @@ Resize Split Pane.Move Divider Left</string>
 		<string>0072</string>
 		<string>0073</string>
 		<string>0074</string>
+		<string>0075</string>
+		<string>0076</string>
+		<string>0077</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -21061,7 +21062,7 @@ Resize Split Pane.Move Divider Left</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-13T09:20:52Z</date>
+	<date>2019-04-05T07:52:59Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -24137,7 +24138,7 @@ Resize Split Pane.Move Divider Left</string>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.20190313-nightly</string>
+	<string>3.3.20190402-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

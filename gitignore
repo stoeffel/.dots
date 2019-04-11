@@ -37,3 +37,5 @@ elm.js
 *.idr~
 Procfile.custom
 .direnv.cache
+concourse-credentials.yaml
+

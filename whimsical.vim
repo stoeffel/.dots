@@ -1,5 +1,6 @@
 source ~/whimsical/whimsical.vim
 
+set notermguicolors
 call plug#begin('~/.vim/plugged')
   call WhimsicalPlugins()
   Plug 'connorholyday/vim-snazzy'
@@ -33,6 +34,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-flagship'
   Plug 'DankNeon/vim'
   Plug 'KKPMW/distilled-vim'
+  Plug 'jeffkreeftmeijer/vim-dim'
+  Plug 'noahfrederick/vim-noctu'
 call plug#end()
 
 function! s:fzf_statusline()
@@ -58,8 +61,14 @@ let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoterm_shell = 'fish'
 
-set bg=dark
-colo NeoSolarized
+" let g:neosolarized_contrast = "high"
+" let g:neosolarized_visibility = "high"
+" let g:neosolarized_vertSplitBgTrans = 1
+" let g:neosolarized_bold = 1
+" let g:neosolarized_underline = 1
+" let g:neosolarized_italic = 1
+" let ayucolor="mirage"
+colo dim
 
 " AIRLINE
 let g:airline_theme='base16'
@@ -72,4 +81,4 @@ let g:airline#extensions#default#layout = [
 set showtabline=0
 set nonumber
 hi Normal guibg=NONE ctermbg=NONE
-highlight SignColumn guibg=transparent
+highlight SignColumn guibg=NONE ctermbg=NONE

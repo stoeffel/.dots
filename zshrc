@@ -6,7 +6,9 @@ antigen use oh-my-zsh
 antigen bundles  <<EOBUNDLES
   git
   pip
+  autojump
   command-not-found
+  fasd
   battery
   zsh-users/zsh-completions
   zsh-users/zsh-syntax-highlighting
@@ -15,6 +17,7 @@ antigen bundles  <<EOBUNDLES
   mafredri/zsh-async
   fzf
   ytet5uy4/fzf-widgets
+  changyuheng/zsh-interactive-cd
 EOBUNDLES
 
 # Tell Antigen that you're done.
