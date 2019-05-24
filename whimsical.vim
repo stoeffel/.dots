@@ -61,14 +61,15 @@ let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoterm_shell = 'fish'
 
-" let g:neosolarized_contrast = "high"
-" let g:neosolarized_visibility = "high"
-" let g:neosolarized_vertSplitBgTrans = 1
-" let g:neosolarized_bold = 1
-" let g:neosolarized_underline = 1
-" let g:neosolarized_italic = 1
+set bg=dark
+let g:neosolarized_contrast = "high"
+let g:neosolarized_visibility = "high"
+let g:neosolarized_vertSplitBgTrans = 1
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 1
+let g:neosolarized_italic = 1
 " let ayucolor="mirage"
-colo dim
+colo NeoSolarized
 
 " AIRLINE
 let g:airline_theme='base16'
@@ -82,3 +83,4 @@ set showtabline=0
 set nonumber
 hi Normal guibg=NONE ctermbg=NONE
 highlight SignColumn guibg=NONE ctermbg=NONE
+hi VertSplit ctermbg=NONE guibg=NONE

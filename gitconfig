@@ -37,6 +37,8 @@ tool=vimdiff
 	unpushed = diff origin/master..HEAD --name-status
     sshow = "!f() { git stash show stash^{/$*} -p; }; f"
     sapply = "!f() { git stash apply stash^{/$*}; }; f"
+  set-origin = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+
 [merge]
 	tool = vimdiff
 [filter "media"]

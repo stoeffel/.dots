@@ -16,7 +16,7 @@ function get_pwd(){
 }
 
 PROMPT='%{$fg[white]%}$(get_pwd) $ret_status%{$reset_color%}%{$reset_color%} '
-RPROMPT='$(git_prompt_info) $(battery_pct_prompt)'
+RPROMPT='$(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
