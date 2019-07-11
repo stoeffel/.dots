@@ -61,7 +61,7 @@ let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoterm_shell = 'fish'
 
-set bg=dark
+set bg=light
 let g:neosolarized_contrast = "high"
 let g:neosolarized_visibility = "high"
 let g:neosolarized_vertSplitBgTrans = 1

@@ -39,10 +39,13 @@ alias a="git add"
 alias all="git add ."
 alias p="git add -p"
 alias c="git commit"
+alias ca="git commit --ammend"
 alias ammend="git commit --ammend"
 alias co="git checkout"
+alias com="git checkout master"
 alias br="git checkout -b"
 alias s="git status"
+alias pull="git pull --rebase"
 alias pull="git pull --rebase"
 alias push="git push"
 alias force="git push --force-with-lease"
@@ -58,3 +61,4 @@ source ~/.dots/zsh/fzf.zsh
 chruby $(cat .ruby-version)
 
 export PATH=~/.local/bin:$PATH
+. /Users/stoeffel/.nix-profile/etc/profile.d/nix.sh
