@@ -36,6 +36,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'KKPMW/distilled-vim'
   Plug 'jeffkreeftmeijer/vim-dim'
   Plug 'noahfrederick/vim-noctu'
+  Plug 'sotte/presenting.vim'
+  Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 function! s:fzf_statusline()
@@ -61,7 +63,10 @@ let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoterm_shell = 'fish'
 
-set bg=light
+let g:vim_markdown_fenced_languages = ['haskell']
+let g:vim_markdown_folding_disabled = 1
+
+set bg=dark
 let g:neosolarized_contrast = "high"
 let g:neosolarized_visibility = "high"
 let g:neosolarized_vertSplitBgTrans = 1
@@ -80,7 +85,7 @@ let g:airline#extensions#default#layout = [
     \ []
     \ ]
 set showtabline=0
-set nonumber
 hi Normal guibg=NONE ctermbg=NONE
 highlight SignColumn guibg=NONE ctermbg=NONE
 hi VertSplit ctermbg=NONE guibg=NONE
+au FileType md let b:presenting_slide_separator = '\v(^|\n)\#{1,4}\s'
