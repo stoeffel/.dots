@@ -1,8 +1,10 @@
 source ~/whimsical/whimsical.vim
 
-set notermguicolors
+set termguicolors
 call plug#begin('~/.vim/plugged')
   call WhimsicalPlugins()
+  Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+  Plug 'voldikss/vim-floaterm'
   Plug 'connorholyday/vim-snazzy'
   Plug 'tyrannicaltoucan/vim-deep-space'
   Plug 'NLKNguyen/papercolor-theme'
@@ -38,6 +40,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'noahfrederick/vim-noctu'
   Plug 'sotte/presenting.vim'
   Plug 'plasticboy/vim-markdown'
+  Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
 function! s:fzf_statusline()
@@ -67,17 +70,16 @@ let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
 
 set bg=dark
-let g:neosolarized_contrast = "high"
-let g:neosolarized_visibility = "high"
-let g:neosolarized_vertSplitBgTrans = 1
-let g:neosolarized_bold = 1
-let g:neosolarized_underline = 1
-let g:neosolarized_italic = 1
-" let ayucolor="mirage"
-colo NeoSolarized
+" let g:neosolarized_contrast = "high"
+" let g:neosolarized_visibility = "high"
+" let g:neosolarized_vertSplitBgTrans = 1
+" let g:neosolarized_bold = 1
+" let g:neosolarized_underline = 1
+" let g:neosolarized_italic = 1
+colo challenger_deep
 
 " AIRLINE
-let g:airline_theme='base16'
+let g:airline_theme='challenger_deep'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [

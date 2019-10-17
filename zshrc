@@ -29,7 +29,6 @@ export FZF_FIND_FILE_COMMAND="rg --files"
 eval "$(direnv hook zsh)"
 
 export EDITOR='nvim'
-
 alias -g v="nvim"
 alias -g l="ls -lah"
 
@@ -55,10 +54,13 @@ alias yoda="force"
 autoload -U edit-command-line
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
 source ~/.dots/zsh/statusline.zsh
 source ~/.dots/zsh/fzf.zsh
-chruby $(cat .ruby-version)
+if [[ -f ".ruby-version" ]]; then
+  chruby $(cat .ruby-version)
+fi
 
 export PATH=~/.local/bin:$PATH
 . /Users/stoeffel/.nix-profile/etc/profile.d/nix.sh
+
+export PATH="/usr/local/opt/node@10/bin:$PATH"
