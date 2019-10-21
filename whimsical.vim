@@ -3,6 +3,7 @@ source ~/whimsical/whimsical.vim
 set termguicolors
 call plug#begin('~/.vim/plugged')
   call WhimsicalPlugins()
+  Plug 'junegunn/limelight.vim'
   Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
   Plug 'voldikss/vim-floaterm'
   Plug 'connorholyday/vim-snazzy'
@@ -17,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'owickstrom/vim-colors-paramount'
   Plug 'rakr/vim-one'
+  Plug 'joshdick/onedark.vim'
   Plug 'w0ng/vim-hybrid'
   Plug 'whatyouhide/vim-gotham'
   Plug 'trevordmiller/nova-vim'
@@ -76,10 +78,10 @@ set bg=dark
 " let g:neosolarized_bold = 1
 " let g:neosolarized_underline = 1
 " let g:neosolarized_italic = 1
-colo challenger_deep
+colo onedark
 
 " AIRLINE
-let g:airline_theme='challenger_deep'
+let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [
@@ -91,3 +93,15 @@ hi Normal guibg=NONE ctermbg=NONE
 highlight SignColumn guibg=NONE ctermbg=NONE
 hi VertSplit ctermbg=NONE guibg=NONE
 au FileType md let b:presenting_slide_separator = '\v(^|\n)\#{1,4}\s'
+vnoremap <Leader>za <Esc>mm`<kzfgg`>jzfG`<'m
+nnoremap <silent><Leader>zo <Esc>mmzRzz'm
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
