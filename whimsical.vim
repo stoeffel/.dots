@@ -78,9 +78,12 @@ set bg=dark
 " let g:neosolarized_bold = 1
 " let g:neosolarized_underline = 1
 " let g:neosolarized_italic = 1
-colo onedark
+" let g:onedark_terminal_italics = 1
+let ayucolor="dark"
+colo ayu
 
 " AIRLINE
+" let g:airline_theme = 'gotham'
 let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
@@ -91,6 +94,7 @@ let g:airline#extensions#default#layout = [
 set showtabline=0
 hi Normal guibg=NONE ctermbg=NONE
 highlight SignColumn guibg=NONE ctermbg=NONE
+highlight Comment cterm=italic gui=italic
 hi VertSplit ctermbg=NONE guibg=NONE
 au FileType md let b:presenting_slide_separator = '\v(^|\n)\#{1,4}\s'
 vnoremap <Leader>za <Esc>mm`<kzfgg`>jzfG`<'m
