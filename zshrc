@@ -64,3 +64,5 @@ export PATH=~/.local/bin:$PATH
 . /Users/stoeffel/.nix-profile/etc/profile.d/nix.sh
 
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+export PATH="~/.cabal/bin:$PATH"
+

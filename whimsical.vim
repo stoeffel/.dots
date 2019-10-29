@@ -3,6 +3,8 @@ source ~/whimsical/whimsical.vim
 set termguicolors
 call plug#begin('~/.vim/plugged')
   call WhimsicalPlugins()
+  Plug 'haishanh/night-owl.vim'
+  Plug 'idris-hackers/idris-vim'
   Plug 'junegunn/limelight.vim'
   Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
   Plug 'voldikss/vim-floaterm'
@@ -58,6 +60,7 @@ let g:startify_lists = [
       \ ]
 let g:ale_linters = { 'ruby': [], 'haskell': [], 'elm': [] }
 
+let g:ale_set_highlights = 0
 let g:fzf_layout = { 'window': '-tabnew' }
 let $FZF_DEFAULT_COMMAND = 'rg --files'
 
@@ -79,12 +82,12 @@ set bg=dark
 " let g:neosolarized_underline = 1
 " let g:neosolarized_italic = 1
 " let g:onedark_terminal_italics = 1
-let ayucolor="dark"
-colo ayu
+" let ayucolor="dark"
+colo night-owl
 
 " AIRLINE
 " let g:airline_theme = 'gotham'
-let g:airline_theme='base16'
+let g:airline_theme='night_owl'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [
