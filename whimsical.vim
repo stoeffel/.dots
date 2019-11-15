@@ -3,6 +3,7 @@ source ~/whimsical/whimsical.vim
 set termguicolors
 call plug#begin('~/.vim/plugged')
   call WhimsicalPlugins()
+  Plug 'dguo/blood-moon', {'rtp': 'applications/vim'}
   Plug 'derekwyatt/vim-scala'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'haishanh/night-owl.vim'
@@ -43,7 +44,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'DankNeon/vim'
   Plug 'KKPMW/distilled-vim'
   Plug 'jeffkreeftmeijer/vim-dim'
-  Plug 'noahfrederick/vim-noctu'
   Plug 'noahfrederick/vim-noctu'
   Plug 'sotte/presenting.vim'
   Plug 'plasticboy/vim-markdown'
@@ -98,7 +98,7 @@ colo ayu
 
 " AIRLINE
 " let g:airline_theme = 'gotham'
-let g:airline_theme='ayu_dark'
+let g:airline_theme='atomic'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [
@@ -107,8 +107,9 @@ let g:airline#extensions#default#layout = [
     \ ]
 set showtabline=0
 hi Normal guibg=NONE ctermbg=NONE
-highlight SignColumn guibg=NONE ctermbg=NONE
-highlight Comment cterm=italic gui=italic
+hi LineNr guibg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
+hi Comment cterm=italic gui=italic
 hi VertSplit ctermbg=NONE guibg=NONE
 au FileType md let b:presenting_slide_separator = '\v(^|\n)\#{1,4}\s'
 vnoremap <Leader>za <Esc>mm`<kzfgg`>jzfG`<'m
@@ -151,6 +152,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nnoremap <C-U> mN:Buffers<CR>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

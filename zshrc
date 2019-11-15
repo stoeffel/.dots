@@ -31,6 +31,7 @@ eval "$(direnv hook zsh)"
 export EDITOR='nvim'
 alias -g v="nvim"
 alias -g l="ls -lah"
+alias tmux="tmux -u"
 
 # Git
 alias g="git"
