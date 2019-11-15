@@ -50,6 +50,12 @@ alias push="git push"
 alias force="git push --force-with-lease"
 alias yoda="force"
 
+alias cat="bat"
+
+function gid () {
+  ghcid --allow-eval "--command=stack ghci $1"
+}
+
 # Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
 
@@ -66,3 +72,6 @@ export PATH=~/.local/bin:$PATH
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="~/.cabal/bin:$PATH"
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"

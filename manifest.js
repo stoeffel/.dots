@@ -56,6 +56,10 @@ const symlinks = [
   {
     dst: ".dots/zshrc",
     src: ".zshrc"
+  },
+  {
+    dst: ".dots/coc-settings.json",
+    src: ".config/nvim/coc-settings.json"
   }
 ];
 
