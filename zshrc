@@ -1,4 +1,4 @@
-source ~/.dots/antigen.zsh
+source $HOME/.antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -18,6 +18,7 @@ antigen bundles  <<EOBUNDLES
   fzf
   ytet5uy4/fzf-widgets
   changyuheng/zsh-interactive-cd
+  sindresorhus/pure
 EOBUNDLES
 
 # Tell Antigen that you're done.
@@ -61,7 +62,6 @@ function gid () {
 autoload -U edit-command-line
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
-source ~/.dots/zsh/statusline.zsh
 source ~/.dots/zsh/fzf.zsh
 if [[ -f ".ruby-version" ]]; then
   chruby $(cat .ruby-version)
@@ -76,3 +76,4 @@ export PATH="~/.cabal/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+

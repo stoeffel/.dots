@@ -6,6 +6,7 @@ let
 in
 { enable = true;
   settings = {
+    live_config_reload = true;
     window = {
       dynamic_padding = true;
       decorations = "transparent";
