@@ -51,7 +51,7 @@
     set -g window-status-separator ""
 
     # Window status alignment
-    set -g status-justify centre
+    set -g status-justify left
 
     # Pane border
     set -g pane-border-style bg=default,fg=colour235

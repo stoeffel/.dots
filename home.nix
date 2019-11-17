@@ -4,7 +4,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    antigen
     bat
     neovim
     nix-prefetch-git
@@ -13,9 +12,6 @@
 
   home.file = {
     "/Applications/Alacritty.app".source = "${pkgs.alacritty}/Applications/Alacritty.app";
-
-    ".antigen.zsh".text = builtins.readFile ./zsh/antigen.zsh;
-
     ".whimsical.vim".text = builtins.readFile ./vim/whimsical.vim;
     ".vimrc".text = builtins.readFile ./vim/whimsical.vim;
     ".config/nvim/init.vim".text = builtins.readFile ./vim/whimsical.vim;
