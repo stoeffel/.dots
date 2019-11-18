@@ -1,36 +1,16 @@
-# OS generated files #
-######################
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
 ehthumbs.db
 Thumbs.db
-.idea
-
-# VIM #
-#######
 .*.s[a-w][a-z]
 *.un~
 Session.vim
 .netrwhist
 *~
-
-# SASS #
-########
-*.sass-cache
-
-#nice
-customer/**/var
-
-nohup.out
-node_modules
-
-.tern-port
 elm-stuff
-
 elm.js
 .local.vim
 *.ibc
@@ -38,4 +18,3 @@ elm.js
 Procfile.custom
 .direnv.cache
 concourse-credentials.yaml
-

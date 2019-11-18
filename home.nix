@@ -1,28 +1,33 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs ? import <nixpkgs> { }, ... }:
+let
+  mylib = import ./lib.nix { inherit pkgs; };
+  callPackage = mylib.makeCallPackage (pkgs // { inherit mylib; });
+in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
-    bat
-    neovim
-    nix-prefetch-git
-    zsh
+  home.packages = [
+    pkgs.autojump
+    pkgs.bat
+    pkgs.direnv
+    pkgs.fasd
+    pkgs.nix-prefetch-git
+    pkgs.nixfmt
+    pkgs.nodejs-12_x
+    pkgs.ripgrep
+    pkgs.zsh
   ];
 
   home.file = {
-    "/Applications/Alacritty.app".source = "${pkgs.alacritty}/Applications/Alacritty.app";
-    ".whimsical.vim".text = builtins.readFile ./vim/whimsical.vim;
-    ".vimrc".text = builtins.readFile ./vim/whimsical.vim;
-    ".config/nvim/init.vim".text = builtins.readFile ./vim/whimsical.vim;
-    ".config/nvim/coc-settings.json".text = builtins.readFile ./vim/coc-settings.json;
-
-    ".gitignore".text = builtins.readFile ./git/gitignore;
-    ".gitconfig".text = builtins.readFile ./git/gitconfig;
+    "/Applications/Alacritty.app".source =
+      "${pkgs.alacritty}/Applications/Alacritty.app";
+    ".config/nvim/coc-settings.json".source = ./neovim/coc-settings.json;
   };
   programs = {
-    alacritty = import ./alacritty.nix {};
-    tmux = import ./tmux.nix { inherit pkgs; };
-    zsh = import ./zsh.nix { inherit pkgs; };
+    alacritty = callPackage ./alacritty.nix { };
+    git = callPackage ./git.nix { };
+    neovim = callPackage ./neovim.nix { };
+    tmux = callPackage ./tmux.nix { };
+    zsh = callPackage ./zsh.nix { };
   };
 }

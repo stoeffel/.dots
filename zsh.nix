@@ -1,8 +1,7 @@
-{pkgs}:
-let
-  plugins = import ./zsh/plugins.nix { inherit pkgs; };
-in
-{ enable = true;
+{ pkgs ? import <nixpkgs> { } }:
+let plugins = import ./zsh/plugins.nix { inherit pkgs; };
+in {
+  enable = true;
   initExtra = ''
     fd() {
         [ $# -gt 0 ] && fasd_cd -d "$*" && return
@@ -12,7 +11,9 @@ in
 
     autoload -U edit-command-line
     export PATH="~/.cabal/bin:$PATH"
-    eval "$(direnv hook zsh)"
+
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
   '';
   dotDir = ".config/zsh";
   oh-my-zsh = {
@@ -20,5 +21,5 @@ in
     plugins = plugins.oh-my-zsh;
   };
   plugins = plugins.extras;
-  shellAliases = import ./zsh/alias.nix {};
+  shellAliases = import ./zsh/alias.nix { };
 }

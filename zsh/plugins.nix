@@ -1,15 +1,14 @@
-{pkgs}:
-{
+{ pkgs ? import <nixpkgs> { } }: {
   oh-my-zsh = [
-      "git"
-      "pip"
-      "autojump"
-      "command-not-found"
-      "fasd"
-      "battery"
-      "history"
-      "fzf"
-    ];
+    "git"
+    "pip"
+    "autojump"
+    "command-not-found"
+    "fasd"
+    "battery"
+    "history"
+    "fzf"
+  ];
   extras = [
     {
       name = "zsh-interactive-cd";
