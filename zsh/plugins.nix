@@ -56,15 +56,6 @@
       };
     }
     {
-      name = "pure";
-      src = pkgs.fetchFromGitHub {
-        owner = "sindresorhus";
-        repo = "pure";
-        rev = "2e354b80deae105ea246699c49e65dcd4fe8b759";
-        sha256 = "0nzvb5iqyn3fv9z5xba850mxphxmnsiq3wxm1rclzffislm8ml1j";
-      };
-    }
-    {
       name = "zsh-completions";
       src = pkgs.fetchFromGitHub {
         owner = "zsh-users";

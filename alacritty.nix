@@ -12,9 +12,9 @@ in {
       padding.y = 35;
     };
     font = {
-      size = 18.0;
-      normal.family = "Operator Mono";
-      normal.style = "Book";
+      size = 16.0;
+      normal.family = "Fira Code";
+      normal.style = "Retina";
     };
   } // theme;
 }

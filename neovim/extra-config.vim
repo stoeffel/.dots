@@ -1,5 +1,4 @@
 source ~/whimsical/whimsical.vim
-
 set termguicolors
 call plug#begin('~/.vim/plugged')
   call WhimsicalPlugins()

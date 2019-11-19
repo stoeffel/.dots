@@ -8,6 +8,7 @@
     pkgs.cabal-install
     pkgs.direnv
     pkgs.fasd
+    pkgs.fira-code
     pkgs.ghc
     pkgs.nix-prefetch-git
     pkgs.nixfmt
@@ -24,7 +25,9 @@
   programs = {
     alacritty = import ./alacritty.nix { inherit pkgs; };
     git = import ./git.nix { inherit pkgs; };
+    fzf = import ./fzf.nix { inherit pkgs; };
     neovim = import ./neovim.nix { inherit pkgs; };
+    starship = import ./starship.nix { inherit pkgs; };
     tmux = import ./tmux.nix { inherit pkgs; };
     zsh = import ./zsh.nix { inherit pkgs; };
   };
