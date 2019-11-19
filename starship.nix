@@ -9,7 +9,7 @@
       "line_break"
       "character"
     ];
-    directory = { style = "fg:7"; };
+    directory = { style = "fg:246"; };
     character = {
       symbol = "λ";
       error_symbol = "✗";

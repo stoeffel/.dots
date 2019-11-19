@@ -1,5 +1,5 @@
 { pkgs ? import <nixpkgs> { } }:
-let theme = pkgs.nur-stoeffel.lib.readJSON ./alacritty/ayu-dark.json;
+let theme = pkgs.nur-stoeffel.lib.readJSON ./alacritty/ayu-light.json;
 in {
   enable = true;
   settings = {
