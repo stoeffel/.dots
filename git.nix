@@ -1,4 +1,4 @@
-{ mylib }: {
+{ pkgs ? import <nixpkgs> { } }: {
   enable = true;
   userName = "Stoeffel";
   userEmail = "schtoeffel@gmail.com";
@@ -8,7 +8,8 @@
       !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
     '';
   };
-  ignores = mylib.readFileLines ./git/ignore;
+  ignores = pkgs.nur-stoeffel.lib.readFileLines ./git/ignore;
+  lfs.enable = true;
   extraConfig = {
     color.diff = "auto";
     color.status = "auto";

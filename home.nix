@@ -1,8 +1,4 @@
-{ config, pkgs ? import <nixpkgs> { }, ... }:
-let
-  mylib = import ./lib.nix { inherit pkgs; };
-  callPackage = mylib.makeCallPackage (pkgs // { inherit mylib; });
-in {
+{ config, pkgs ? import <nixpkgs> { }, ... }: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -24,10 +20,10 @@ in {
     ".config/nvim/coc-settings.json".source = ./neovim/coc-settings.json;
   };
   programs = {
-    alacritty = callPackage ./alacritty.nix { };
-    git = callPackage ./git.nix { };
-    neovim = callPackage ./neovim.nix { };
-    tmux = callPackage ./tmux.nix { };
-    zsh = callPackage ./zsh.nix { };
+    alacritty = import ./alacritty.nix { inherit pkgs; };
+    git = import ./git.nix { inherit pkgs; };
+    neovim = import ./neovim.nix { inherit pkgs; };
+    tmux = import ./tmux.nix { inherit pkgs; };
+    zsh = import ./zsh.nix { inherit pkgs; };
   };
 }
