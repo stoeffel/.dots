@@ -16,6 +16,7 @@
   push = "git push";
   s = "git status";
   tmux = "tmux -u";
+  t = "tmux -u";
   v = "nvim";
   yoda = "force";
 }
