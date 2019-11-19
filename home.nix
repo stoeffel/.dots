@@ -5,8 +5,10 @@
   home.packages = [
     pkgs.autojump
     pkgs.bat
+    pkgs.cabal-install
     pkgs.direnv
     pkgs.fasd
+    pkgs.ghc
     pkgs.nix-prefetch-git
     pkgs.nixfmt
     pkgs.nodejs-12_x
