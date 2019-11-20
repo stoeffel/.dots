@@ -1,22 +1,23 @@
 { config, pkgs ? import <nixpkgs> { }, ... }: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  home.packages = [
-    pkgs.autojump
-    pkgs.bat
-    pkgs.cabal-install
-    pkgs.coreutils
-    pkgs.fasd
-    pkgs.fira-code
-    pkgs.ghc
-    pkgs.ghcid
-    pkgs.nix-prefetch-git
-    pkgs.nixfmt
-    pkgs.nodejs-12_x
-    pkgs.ripgrep
-    pkgs.rustup
-    pkgs.nur-stoeffel.ormolu
-    pkgs.nur-stoeffel.hindent-imposter
+  home.packages = with pkgs; [
+    autojump
+    bat
+    cabal-install
+    coreutils
+    fasd
+    fira-code
+    ghc
+    ghcid
+    haskellPackages.hpack
+    nix-prefetch-git
+    nixfmt
+    nodejs-12_x
+    nur-stoeffel.hindent-imposter
+    nur-stoeffel.ormolu
+    ripgrep
+    rustup
   ];
 
   home.file = {
