@@ -11,8 +11,7 @@ in {
 
     autoload -U edit-command-line
     export PATH="~/.cabal/bin:$PATH"
-
-    eval "$(direnv hook zsh)"
+    export BAT_THEME="OneHalfDark"
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
   '';

@@ -1,6 +1,5 @@
 { pkgs ? import <nixpkgs> { } }:
-let theme = pkgs.nur-stoeffel.lib.readJSON ./alacritty/ayu-light.json;
-in {
+with pkgs.nur-stoeffel.lib; {
   enable = true;
   settings = {
     live_config_reload = true;
@@ -16,5 +15,5 @@ in {
       normal.family = "Fira Code";
       normal.style = "Retina";
     };
-  } // theme;
+  } // readJSON ./alacritty/ayu-dark.json;
 }

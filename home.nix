@@ -1,20 +1,22 @@
 { config, pkgs ? import <nixpkgs> { }, ... }: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
   home.packages = [
     pkgs.autojump
     pkgs.bat
     pkgs.cabal-install
-    pkgs.direnv
+    pkgs.coreutils
     pkgs.fasd
     pkgs.fira-code
     pkgs.ghc
+    pkgs.ghcid
     pkgs.nix-prefetch-git
     pkgs.nixfmt
     pkgs.nodejs-12_x
     pkgs.ripgrep
-    pkgs.zsh
+    pkgs.rustup
+    pkgs.nur-stoeffel.ormolu
+    pkgs.nur-stoeffel.hindent-imposter
   ];
 
   home.file = {
@@ -24,6 +26,7 @@
   };
   programs = {
     alacritty = import ./alacritty.nix { inherit pkgs; };
+    direnv = { enable = true; };
     git = import ./git.nix { inherit pkgs; };
     fzf = import ./fzf.nix { inherit pkgs; };
     neovim = import ./neovim.nix { inherit pkgs; };
