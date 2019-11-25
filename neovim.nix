@@ -6,14 +6,16 @@ with pkgs.nur-stoeffel.vimPlugins; {
   vimAlias = true;
   extraConfig = builtins.readFile ./neovim/extra-config.vim;
   plugins = [
-    coc-nvim
-    vim-scala
-    idris-vim
-    base16-vim
-    vim-airline-themes
-    dhall-vim
-    vim-markdown
+    agda-vim
     ayu-vim
+    base16-vim
+    coc-nvim
+    dhall-vim
+    idris-vim
     presenting-vim
+    unicode-vim
+    vim-airline-themes
+    vim-markdown
+    vim-scala
   ];
 }

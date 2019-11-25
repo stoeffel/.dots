@@ -42,6 +42,8 @@ hi SignColumn guibg=NONE ctermbg=NONE
 hi Comment cterm=italic gui=italic
 hi VertSplit ctermbg=NONE guibg=NONE
 
+au BufNewFile,BufRead *.lagda.md setf agda
+au BufNewFile,BufRead *.agda setf agda
 au FileType md let b:presenting_slide_separator = '\v(^|\n)\#{1,4}\s'
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
