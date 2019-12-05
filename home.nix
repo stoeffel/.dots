@@ -22,6 +22,9 @@
     ripgrep
     ruby
     rustup
+    sbt
+    scala
+    scalafmt
   ];
 
   home.file = {

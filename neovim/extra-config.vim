@@ -1,5 +1,10 @@
 source ~/whimsical/whimsical.vim
 set termguicolors
+
+augroup agda_ft
+  au!
+  autocmd BufNewFile,BufRead *.lagda.md setf agda
+augroup END
 call plug#begin('~/.vim/plugged')
   call WhimsicalPlugins()
 call plug#end()
@@ -18,6 +23,7 @@ let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoformat_nix_nixfmt = { 'exe': 'nixfmt', 'stdin': 1 }
 let g:neoformat_enabled_nix = ['nixfmt']
+let g:neoformat_enabled_agda = []
 
 let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
@@ -42,8 +48,6 @@ hi SignColumn guibg=NONE ctermbg=NONE
 hi Comment cterm=italic gui=italic
 hi VertSplit ctermbg=NONE guibg=NONE
 
-au BufNewFile,BufRead *.lagda.md setf agda
-au BufNewFile,BufRead *.agda setf agda
 au FileType md let b:presenting_slide_separator = '\v(^|\n)\#{1,4}\s'
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240

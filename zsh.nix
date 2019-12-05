@@ -10,7 +10,8 @@ in {
     }
 
     autoload -U edit-command-line
-    export PATH="~/.cabal/bin:$PATH"
+    export PATH="$PATH:~/.cabal/bin"
+    export PATH="$PATH:/usr/local/bin"
     export BAT_THEME="OneHalfDark"
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
