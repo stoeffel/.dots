@@ -13,6 +13,7 @@ in {
     export PATH="$PATH:~/.cabal/bin"
     export PATH="$PATH:/usr/local/bin"
     export BAT_THEME="OneHalfDark"
+    export LANG=en_US.UTF-8
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
   '';

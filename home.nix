@@ -2,11 +2,13 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
-    nur-stoeffel.agda-stdlib
     autojump
     bat
     cabal-install
     coreutils
+    dhall
+    dhall-json
+    elmPackages.elm-live
     fasd
     fira-code
     ghc
@@ -14,9 +16,11 @@
     gzip
     haskellPackages.Agda
     haskellPackages.hpack
+    jq
     nix-prefetch-git
     nixfmt
     nodejs-12_x
+    nur-stoeffel.agda-stdlib
     nur-stoeffel.hindent-imposter
     nur-stoeffel.ormolu
     ripgrep

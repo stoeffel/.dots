@@ -14,6 +14,7 @@
   p = "git add -p";
   pull = "git pull --rebase";
   push = "git push";
+  root = "cd $(git rev-parse --show-toplevel)";
   s = "git status";
   tmux = "tmux -u";
   t = "tmux -u";
