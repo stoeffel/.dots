@@ -5,6 +5,7 @@
     autojump
     bat
     cabal-install
+    clang_8
     coreutils
     dhall
     dhall-json
@@ -17,6 +18,9 @@
     haskellPackages.Agda
     haskellPackages.hpack
     jq
+    llvm_8
+    libcxx
+    llvmPackages.libclang
     nix-prefetch-git
     nixfmt
     nodejs-12_x

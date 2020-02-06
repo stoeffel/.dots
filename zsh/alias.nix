@@ -5,7 +5,6 @@
   br = "git checkout -b";
   c = "git commit";
   ca = "git commit --ammend";
-  cat = "bat";
   co = "git checkout";
   com = "git checkout master";
   force = "git push --force-with-lease";

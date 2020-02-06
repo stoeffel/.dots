@@ -12,6 +12,7 @@ with pkgs.nur-stoeffel.vimPlugins; {
     coc-nvim
     dhall-vim
     idris-vim
+    papercolor-theme
     presenting-vim
     unicode-vim
     vim-airline-themes

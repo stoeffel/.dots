@@ -12,6 +12,7 @@ in {
     autoload -U edit-command-line
     export PATH="$PATH:~/.cabal/bin"
     export PATH="$PATH:/usr/local/bin"
+    export PATH="$PATH:$HOME/.cargo/bin"
     export BAT_THEME="OneHalfDark"
     export LANG=en_US.UTF-8
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"

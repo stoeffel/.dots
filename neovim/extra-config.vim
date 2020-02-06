@@ -29,9 +29,8 @@ let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
-set bg=dark
-let ayucolor="dark"
-colo ayu
+set bg=light
+colo PaperColor
 
 " AIRLINE
 let g:airline_theme='atomic'
