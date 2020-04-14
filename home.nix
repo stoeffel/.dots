@@ -2,8 +2,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
+    (pkgs.callPackage ./similarity-sort { })
     autojump
     bat
+    bfg-repo-cleaner
     cabal-install
     clang_8
     coreutils
@@ -15,7 +17,6 @@
     ghc
     ghcid
     gzip
-    haskellPackages.Agda
     haskellPackages.hpack
     jq
     llvm_8
@@ -24,27 +25,21 @@
     nix-prefetch-git
     nixfmt
     nodejs-12_x
-    nur-stoeffel.agda-stdlib
-    nur-stoeffel.hindent-imposter
-    nur-stoeffel.ormolu
     ripgrep
     ruby
     rustup
     sbt
     scala
     scalafmt
+    stack
   ];
 
   home.file = {
     "/Applications/Alacritty.app".source =
       "${pkgs.alacritty}/Applications/Alacritty.app";
     ".config/nvim/coc-settings.json".source = ./neovim/coc-settings.json;
-    ".agda/standard-library.agda-lib".text = ''
-      name: standard-library
-      include: ${pkgs.nur-stoeffel.agda-stdlib}/share/agda
-    '';
-    ".agda/libraries".text = ''
-      ~/.agda/standard-library.agda-lib
+    ".ignore".text = ''
+      .git
     '';
   };
   programs = {

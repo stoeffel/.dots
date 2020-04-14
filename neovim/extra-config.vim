@@ -1,10 +1,7 @@
 source ~/whimsical/whimsical.vim
 set termguicolors
 
-augroup agda_ft
-  au!
-  autocmd BufNewFile,BufRead *.lagda.md setf agda
-augroup END
+let $FZF_DEFAULT_COMMAND = 'rg --files | similarity-sort'
 call plug#begin('~/.vim/plugged')
   call WhimsicalPlugins()
 call plug#end()
@@ -14,6 +11,9 @@ let g:startify_lists = [
       \ { 'type': 'files',     'header': [   'MRU']            },
       \ { 'type': 'commands',  'header': [   'Commands']       },
       \ ]
+
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 let g:ale_linters = { 'ruby': [], 'haskell': [], 'elm': [] }
 let g:ale_set_highlights = 0
@@ -29,11 +29,12 @@ let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
-set bg=light
-colo PaperColor
+set bg=dark
+let ayucolor="dark"
+colo ayu
 
 " AIRLINE
-let g:airline_theme='atomic'
+let g:airline_theme='ayu_dark'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [

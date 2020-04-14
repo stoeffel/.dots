@@ -15,5 +15,5 @@ with pkgs.nur-stoeffel.lib; {
       normal.family = "Fira Code";
       normal.style = "Retina";
     };
-  } // readJSON ./alacritty/papercolor-light.json;
+  } // readJSON ./alacritty/ayu-dark.json;
 }

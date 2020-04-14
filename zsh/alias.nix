@@ -19,4 +19,5 @@
   t = "tmux -u";
   v = "nvim";
   yoda = "force";
+  oni2 = "/Applications/Onivim2.app/Contents/MacOS/Oni2";
 }
