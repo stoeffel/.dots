@@ -14,6 +14,7 @@ let g:startify_lists = [
 
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+nnoremap <C-f> mN:Lines<cr>
 
 let g:ale_linters = { 'ruby': [], 'haskell': [], 'elm': [] }
 let g:ale_set_highlights = 0

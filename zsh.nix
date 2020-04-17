@@ -15,6 +15,7 @@ in {
     export PATH="$PATH:$HOME/.cargo/bin"
     export BAT_THEME="OneHalfDark"
     export LANG=en_US.UTF-8
+    export EDITOR=nvim
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
   '';

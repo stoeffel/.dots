@@ -14,17 +14,19 @@
     elmPackages.elm-live
     fasd
     fira-code
+    fpp
     ghc
     ghcid
     gzip
     haskellPackages.hpack
     jq
-    llvm_8
     libcxx
     llvmPackages.libclang
+    llvm_8
     nix-prefetch-git
     nixfmt
     nodejs-12_x
+    python3
     ripgrep
     ruby
     rustup

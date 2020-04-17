@@ -9,6 +9,12 @@ in with pkgs.nur-stoeffel.lib; {
   secureSocket = false;
   shortcut = "b";
   customPaneNavigationAndResize = true;
-  plugins = with pkgs.tmuxPlugins; [ battery continuum pain-control resurrect ];
+  plugins = with pkgs.tmuxPlugins; [
+    battery
+    continuum
+    pain-control
+    resurrect
+    fpp
+  ];
   extraConfig = unlines [ "set -g mouse on" keybindings statusbar ];
 }
