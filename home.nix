@@ -1,8 +1,14 @@
-{ config, pkgs ? import <nixpkgs> { }, ... }: {
+{ config, pkgs ? import <nixpkgs> { }, ... }:
+let
+  unstable = (import ./unstable.nix).pkgs;
+  ormolu = unstable.ormolu;
+  hindent-imposter =
+    pkgs.callPackage ./ormolu/hindent-imposter.nix { inherit ormolu; };
+  similarity-sort = pkgs.callPackage ./similarity-sort { };
+in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
-    (pkgs.callPackage ./similarity-sort { })
     autojump
     bat
     bfg-repo-cleaner
@@ -19,6 +25,7 @@
     ghcid
     gzip
     haskellPackages.hpack
+    hindent-imposter
     jq
     libcxx
     llvmPackages.libclang
@@ -26,6 +33,7 @@
     nix-prefetch-git
     nixfmt
     nodejs-12_x
+    ormolu
     python3
     ripgrep
     ruby
@@ -33,6 +41,7 @@
     sbt
     scala
     scalafmt
+    similarity-sort
     stack
   ];
 

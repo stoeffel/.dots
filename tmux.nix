@@ -2,7 +2,8 @@
 let
   statusbar = builtins.readFile ./tmux/statusbar.conf;
   keybindings = builtins.readFile ./tmux/keybindings.conf;
-in with pkgs.nur-stoeffel.lib; {
+  helpers = pkgs.callPackage ./helpers.nix { };
+in with helpers; {
   enable = true;
   tmuxinator.enable = true;
   keyMode = "vi";

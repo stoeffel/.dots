@@ -1,5 +1,6 @@
 { pkgs ? import <nixpkgs> { } }:
-with pkgs.nur-stoeffel.lib; {
+let helpers = pkgs.callPackage ./helpers.nix { };
+in with helpers; {
   enable = true;
   userName = "Stoeffel";
   userEmail = "schtoeffel@gmail.com";

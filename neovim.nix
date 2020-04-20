@@ -1,16 +1,17 @@
 { pkgs ? import <nixpkgs> { } }:
-with pkgs.vimPlugins;
-with pkgs.nur-stoeffel.vimPlugins; {
+let vimPlugins = import ./vimPlugins { inherit pkgs; };
+in with pkgs.vimPlugins;
+with vimPlugins; {
   enable = true;
   viAlias = true;
   vimAlias = true;
   extraConfig = builtins.readFile ./neovim/extra-config.vim;
   plugins = [
-    agda-vim
     ayu-vim
     base16-vim
     coc-nvim
     dhall-vim
+    fogbell-vim
     idris-vim
     papercolor-theme
     presenting-vim
