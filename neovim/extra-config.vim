@@ -31,8 +31,8 @@ let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
 set bg=dark
-let ayucolor="dark"
-colo ayu
+" let ayucolor="dark"
+colo noctu
 
 " AIRLINE
 let g:airline_theme='ayu_dark'

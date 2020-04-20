@@ -13,11 +13,14 @@ with vimPlugins; {
     dhall-vim
     fogbell-vim
     idris-vim
+    night-owl-vim
     papercolor-theme
     presenting-vim
     unicode-vim
     vim-airline-themes
+    vim-dim
     vim-markdown
+    vim-noctu
     vim-scala
   ];
 }

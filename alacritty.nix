@@ -16,5 +16,5 @@ in with helpers; {
       normal.family = "Fira Code";
       normal.style = "Retina";
     };
-  } // readJSON ./alacritty/ayu-dark.json;
+  } // readJSON ./alacritty/hyper.json;
 }
