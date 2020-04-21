@@ -44,7 +44,7 @@ let g:airline#extensions#default#layout = [
     \ ]
 
 hi Normal guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE ctermbg=NONE guifg=darkgrey
 hi SignColumn guibg=NONE ctermbg=NONE
 hi Comment cterm=italic gui=italic
 hi VertSplit ctermbg=NONE guibg=NONE
