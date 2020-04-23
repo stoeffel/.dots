@@ -16,6 +16,7 @@ with vimPlugins; {
     night-owl-vim
     papercolor-theme
     presenting-vim
+    typewriter-vim
     unicode-vim
     vim-airline-themes
     vim-dim

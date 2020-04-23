@@ -31,11 +31,11 @@ let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
 set bg=dark
-" let ayucolor="dark"
-colo noctu
+let ayucolor="dark"
+colo ayu
 
 " AIRLINE
-let g:airline_theme='ayu_dark'
+let g:airline_theme='atomic'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [
