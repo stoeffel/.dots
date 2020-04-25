@@ -10,7 +10,7 @@
   force = "git push --force-with-lease";
   g = "git";
   l = "ls -lah";
-  lg = "tmux new-window 'lazygit ; read'";
+  lg = "tmux new-window 'lazygit;'";
   mux = "tmuxinator";
   p = "git add -p";
   pull = "git pull --rebase";
