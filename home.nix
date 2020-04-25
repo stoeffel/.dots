@@ -1,6 +1,7 @@
 { config, pkgs ? import <nixpkgs> { }, ... }:
 let
   unstable = (import ./unstable.nix).pkgs;
+  lazygit = unstable.lazygit;
   ormolu = unstable.ormolu;
   hindent-imposter =
     pkgs.callPackage ./ormolu/hindent-imposter.nix { inherit ormolu; };
@@ -27,6 +28,7 @@ in {
     haskellPackages.hpack
     hindent-imposter
     jq
+    lazygit
     libcxx
     llvmPackages.libclang
     llvm_8

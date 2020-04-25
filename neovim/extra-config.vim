@@ -35,7 +35,7 @@ let ayucolor="dark"
 colo ayu
 
 " AIRLINE
-let g:airline_theme='atomic'
+let g:airline_theme='ayu_dark'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [

@@ -6,8 +6,8 @@ in with helpers; {
     live_config_reload = true;
     window = {
       dynamic_padding = true;
-      decorations = "transparent";
-      startup_mode = "Windowed";
+      decorations = "none";
+      startup_mode = "Maximized";
       padding.x = 25;
       padding.y = 35;
     };
@@ -15,6 +15,9 @@ in with helpers; {
       size = 18.0;
       normal.family = "Operator Mono";
       normal.style = "Book";
+      bold.style = "Bold";
+      italic.style = "Book Italic";
+      bold_italic.style = "Bold Italic";
     };
   } // readJSON ./alacritty/ayu-dark.json;
 }
