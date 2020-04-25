@@ -10,8 +10,8 @@
   force = "git push --force-with-lease";
   g = "git";
   l = "ls -lah";
+  lg = "tmux new-window 'lazygit ; read'";
   mux = "tmuxinator";
-  oni2 = "/Applications/Onivim2.app/Contents/MacOS/Oni2";
   p = "git add -p";
   pull = "git pull --rebase";
   push = "git push";
