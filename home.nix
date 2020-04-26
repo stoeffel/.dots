@@ -2,6 +2,7 @@
 let
   unstable = (import ./unstable.nix).pkgs;
   lazygit = unstable.lazygit;
+  gotop = unstable.gotop;
   ormolu = unstable.ormolu;
   hindent-imposter =
     pkgs.callPackage ./ormolu/hindent-imposter.nix { inherit ormolu; };
@@ -45,6 +46,7 @@ in {
     scalafmt
     similarity-sort
     stack
+    gotop
   ];
 
   home.file = {
