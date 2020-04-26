@@ -13,7 +13,7 @@ let g:startify_lists = [
       \ ]
 
 
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 nnoremap <C-f> mN:Lines<cr>
 
 let g:ale_linters = { 'ruby': [], 'haskell': [], 'elm': [] }
@@ -48,14 +48,6 @@ hi LineNr guibg=NONE ctermbg=NONE guifg=darkgrey
 hi SignColumn guibg=NONE ctermbg=NONE
 hi Comment cterm=italic gui=italic
 hi VertSplit ctermbg=NONE guibg=NONE
-
-au FileType md let b:presenting_slide_separator = '\v(^|\n)\#{1,4}\s'
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
