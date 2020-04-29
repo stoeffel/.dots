@@ -19,5 +19,5 @@ in with helpers; {
       italic.style = "Book Italic";
       bold_italic.style = "Bold Italic";
     };
-  } // readJSON ./alacritty/ayu-dark.json;
+  } // readJSON ./alacritty/one-dark.json;
 }

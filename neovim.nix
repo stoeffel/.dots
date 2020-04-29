@@ -7,6 +7,7 @@ with vimPlugins; {
   vimAlias = true;
   extraConfig = builtins.readFile ./neovim/extra-config.vim;
   plugins = [
+    NeoSolarized
     ayu-vim
     base16-vim
     coc-nvim
@@ -14,6 +15,7 @@ with vimPlugins; {
     fogbell-vim
     idris-vim
     night-owl-vim
+    onehalf-vim
     papercolor-theme
     presenting-vim
     typewriter-vim
