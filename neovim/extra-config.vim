@@ -35,7 +35,7 @@ set bg=dark
 colo onehalfdark
 
 " AIRLINE
-let g:airline_theme='atomic'
+let g:airline_theme='onehalfdark'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [
@@ -48,6 +48,8 @@ hi LineNr guibg=NONE ctermbg=NONE guifg=darkgrey
 hi SignColumn guibg=NONE ctermbg=NONE
 hi Comment cterm=italic gui=italic
 hi VertSplit ctermbg=NONE guibg=NONE
+hi CursorLine ctermbg=NONE guibg=NONE
+hi StatusLine guibg=NONE ctermbg=NONE
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
@@ -69,7 +71,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 nnoremap <C-U> mN:Buffers<CR>
 nnoremap <C-g> :!tmux new-window 'lazygit;'<cr><cr>
-nnoremap <leader>t :!tmux new-window 'gotop -m;'<cr><cr>
+nnoremap <C-h> :!tmux new-window '~/.cabal/bin/tmux-tui;'<cr><cr>
 nnoremap <C-t> :!tmux split-window <cr><cr>
 
 "  COC 
