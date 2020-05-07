@@ -59,6 +59,7 @@ in {
   };
   programs = {
     alacritty = import ./alacritty.nix { inherit pkgs; };
+    kitty = import ./kitty.nix { inherit pkgs; };
     direnv = { enable = true; };
     git = import ./git.nix { inherit pkgs; };
     fzf = import ./fzf.nix { inherit pkgs; };

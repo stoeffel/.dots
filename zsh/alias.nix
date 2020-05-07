@@ -4,6 +4,7 @@
   mux = "tmuxinator";
   root = "cd $(git rev-parse --show-toplevel)";
   t = "tmux -u";
+  tmux-tui = "~/.cabal/bin/tmux-tui";
   tt = "~/.cabal/bin/tmux-tui";
   tmux = "tmux -u";
   v = "nvim";

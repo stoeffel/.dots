@@ -31,11 +31,13 @@ let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
-set bg=dark
-colo onehalfdark
+set bg=light
+" let ayucolor="light"
+let g:neosolarized_italic = 1
+colo NeoSolarized
 
 " AIRLINE
-let g:airline_theme='onehalfdark'
+let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [
