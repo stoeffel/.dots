@@ -10,9 +10,9 @@ in {
     }
 
     autoload -U edit-command-line
-    export PATH="$PATH:~/.cabal/bin"
     export PATH="$PATH:/usr/local/bin"
     export PATH="$PATH:$HOME/.cargo/bin"
+    export PATH="$PATH:$HOME/.cabal/bin"
     export BAT_THEME="OneHalfDark"
     export LANG=en_US.UTF-8
     export EDITOR=nvim

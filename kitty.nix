@@ -4,7 +4,7 @@ in with helpers; {
   enable = true;
   settings = {
     allow_remote_control = "yes";
-    clipboard_control = "write-clipboard write-primary";
+    clipboard_control = "write-clipboard write-primary no-append";
     macos_option_as_alt = "both";
 
     font_family = "Operator Mono";

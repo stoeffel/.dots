@@ -4,6 +4,7 @@ let
   lazygit = unstable.lazygit;
   gotop = unstable.gotop;
   ormolu = unstable.ormolu;
+  spago = unstable.spago;
   hindent-imposter =
     pkgs.callPackage ./ormolu/hindent-imposter.nix { inherit ormolu; };
   similarity-sort = pkgs.callPackage ./similarity-sort { };
@@ -37,6 +38,7 @@ in {
     nixfmt
     nodejs-12_x
     ormolu
+    purescript
     python3
     ripgrep
     ruby
@@ -45,6 +47,7 @@ in {
     scala
     scalafmt
     similarity-sort
+    spago
     stack
     gotop
   ];

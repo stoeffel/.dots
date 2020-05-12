@@ -72,8 +72,6 @@ endfunction
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 nnoremap <C-U> mN:Buffers<CR>
-nnoremap <C-g> :!tmux new-window 'lazygit;'<cr><cr>
-nnoremap <C-h> :!tmux new-window '~/.cabal/bin/tmux-tui;'<cr><cr>
 nnoremap <C-t> :!tmux split-window <cr><cr>
 
 "  COC 
