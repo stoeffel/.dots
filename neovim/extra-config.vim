@@ -31,9 +31,11 @@ let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
-set bg=light
+set bg=dark
 " let ayucolor="light"
 let g:neosolarized_italic = 1
+let g:neosolarized_contrast = "high"
+let g:neosolarized_visibility = "high"
 colo NeoSolarized
 
 " AIRLINE
