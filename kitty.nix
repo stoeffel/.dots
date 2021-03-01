@@ -25,27 +25,27 @@ in with helpers; {
 
     # # Ayu Light
 
-    # background = "#fafafa";
-    # foreground = "#5b6673";
-    # cursor = "#ff6900";
-    # selection_background = "#f0ede4";
-    # color0 = "#000000";
-    # color8 = "#323232";
-    # color1 = "#ff3333";
-    # color9 = "#ff6565";
-    # color2 = "#86b200";
-    # color10 = "#b8e532";
-    # color3 = "#f19618";
-    # color11 = "#ffc849";
-    # color4 = "#41a6d9";
-    # color12 = "#73d7ff";
-    # color5 = "#f07078";
-    # color13 = "#ffa3aa";
-    # color6 = "#4cbe99";
-    # color14 = "#7ff0cb";
-    # color7 = "#ffffff";
-    # color15 = "#ffffff";
-    # selection_foreground = "#fafafa";
+    background = "#fafafa";
+    foreground = "#5b6673";
+    cursor = "#ff6900";
+    selection_background = "#f0ede4";
+    color0 = "#000000";
+    color8 = "#323232";
+    color1 = "#ff3333";
+    color9 = "#ff6565";
+    color2 = "#86b200";
+    color10 = "#b8e532";
+    color3 = "#f19618";
+    color11 = "#ffc849";
+    color4 = "#41a6d9";
+    color12 = "#73d7ff";
+    color5 = "#f07078";
+    color13 = "#ffa3aa";
+    color6 = "#4cbe99";
+    color14 = "#7ff0cb";
+    color7 = "#ffffff";
+    color15 = "#ffffff";
+    selection_foreground = "#fafafa";
 
     # # Solarized Light
     # background = "#fdf6e3";
@@ -71,26 +71,75 @@ in with helpers; {
     # selection_foreground = "#fcf4dc";
 
     # # Solarized Dark high contrast
-    background = "#001e26";
-    foreground = "#9bc1c2";
-    cursor = "#f34a00";
-    selection_background = "#003747";
-    color0 = "#002731";
-    color8 = "#006388";
-    color1 = "#d01b24";
-    color9 = "#f4153b";
-    color2 = "#6bbe6c";
-    color10 = "#50ee84";
-    color3 = "#a57705";
-    color11 = "#b17e28";
-    color4 = "#2075c7";
-    color12 = "#178dc7";
-    color5 = "#c61b6e";
-    color13 = "#e14d8e";
-    color6 = "#259185";
-    color14 = "#00b29e";
-    color7 = "#e9e2cb";
-    color15 = "#fcf4dc";
-    selection_foreground = "#001e26";
+    # background = "#001e26";
+    # foreground = "#9bc1c2";
+    # cursor = "#f34a00";
+    # selection_background = "#003747";
+    # color0 = "#002731";
+    # color8 = "#006388";
+    # color1 = "#d01b24";
+    # color9 = "#f4153b";
+    # color2 = "#6bbe6c";
+    # color10 = "#50ee84";
+    # color3 = "#a57705";
+    # color11 = "#b17e28";
+    # color4 = "#2075c7";
+    # color12 = "#178dc7";
+    # color5 = "#c61b6e";
+    # color13 = "#e14d8e";
+    # color6 = "#259185";
+    # color14 = "#00b29e";
+    # color7 = "#e9e2cb";
+    # color15 = "#fcf4dc";
+    # selection_foreground = "#001e26";
+
+    # Ayu Dark
+
+    #foreground = "#bfbab0";
+    #background = "#0f1419";
+
+    #selection_foreground = "#0f1419";
+    #selection_background = "#ffb454";
+
+    #color0 = "#9da2a6";
+    #color8 = "#d9dbdd";
+
+    ##: black
+
+    #color1 = "#ff3333";
+    #color9 = "#f51818";
+
+    ##: red
+
+    #color2 = " #bae67e";
+    #color10 = "#c2d94c";
+
+    ##: green
+
+    #color3 = " #ffcc66";
+    #color11 = "#f29718";
+
+    ##: yellow
+
+    #color4 = " #73d0ff";
+    #color12 = "#59c2ff";
+
+    ##: blue
+
+    #color5 = " #d4bfff";
+    #color13 = "#b77ee0";
+
+    ##: magenta
+
+    #color6 = " #83cec6";
+    #color14 = "#5ccfe6";
+
+    ##: cyan
+
+    #color7 = " #f0f0f0";
+    #color15 = "#ffffff";
+
+    ##: white
+
   };
 }

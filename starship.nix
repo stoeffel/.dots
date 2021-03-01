@@ -1,17 +1,23 @@
 { pkgs ? import <nixpkgs> { } }: {
   enable = true;
   settings = {
-    prompt_order = [
-      "directory"
-      "git_branch"
-      "git_state"
-      "git_status"
-      "line_break"
-      "character"
+    add_newline = false;
+    # format = pkgs.lib.concatStrings [
+    #   "$directory"
+    #   "$git_branch"
+    #   "$git_state"
+    #   "$git_status"
+    #   "$line_break"
+    #   "$character"
+    # ];
+    format = pkgs.lib.concatStringsSep "\n" [
+      "[┌───────────────────](green) $git_branch$git_state $git_status"
+      "[│](green)$directory"
+      "[└─](green) "
     ];
     directory = { style = "fg:246"; };
     character = {
-      symbol = "λ";
+      success_symbol = "λ";
       error_symbol = "✗";
       use_symbol_for_status = true;
       style_success = "fg:cyan";
@@ -20,12 +26,15 @@
     git_branch = {
       style = "fg:244";
       symbol = "";
+      format = "[$symbol$branch]($style)";
     };
     git_status = {
-      prefix = "";
-      suffix = "";
       style = "fg:241";
-      stashed = "";
+      format = "([$all_status$ahead_behind]($style))";
+    };
+    git_state = {
+      format = "[($state( $progress_current of $progress_total))]($style) ";
+      cherry_pick = "[🍒 PICKING](bold red)";
     };
   };
 }

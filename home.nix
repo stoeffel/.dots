@@ -1,7 +1,6 @@
 { config, pkgs ? import <nixpkgs> { }, ... }:
 let
   unstable = (import ./unstable.nix).pkgs;
-  lazygit = unstable.lazygit;
   gotop = unstable.gotop;
   ormolu = unstable.ormolu;
   spago = unstable.spago;

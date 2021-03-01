@@ -1,6 +1,15 @@
 { }: {
   l = "ls -lah";
-  g = "tmux new-window 'lazygit;'";
+  a = "git add";
+  all = "git add .";
+  ammend = "git commit --ammend";
+  br = "git checkout -b";
+  c = "git commit";
+  ca = "git commit --ammend";
+  co = "git checkout";
+  com = "git checkout master";
+  force = "git push --force-with-lease";
+  g = "git";
   mux = "tmuxinator";
   root = "cd $(git rev-parse --show-toplevel)";
   t = "tmux -u";

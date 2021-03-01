@@ -25,5 +25,6 @@ with vimPlugins; {
     vim-markdown
     vim-noctu
     vim-scala
+    vim-textobj-user
   ];
 }
