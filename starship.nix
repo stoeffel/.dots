@@ -24,7 +24,7 @@
       style_failure = "fg:purple";
     };
     git_branch = {
-      style = "fg:244";
+      style = "italic fg:244";
       symbol = "";
       format = "[$symbol$branch]($style)";
     };

@@ -17,5 +17,10 @@ in with helpers; {
     resurrect
     fpp
   ];
-  extraConfig = unlines [ "set -g mouse on" keybindings statusbar ];
+  extraConfig = unlines [
+    ''set -g default-terminal "xterm-256color"''
+    "set -g mouse on"
+    keybindings
+    statusbar
+  ];
 }

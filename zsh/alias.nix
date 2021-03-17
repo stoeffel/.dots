@@ -18,4 +18,5 @@
   tmux = "tmux -u";
   v = "nvim";
   yoda = "force";
+  k = "awsudo kubectl";
 }

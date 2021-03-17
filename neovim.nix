@@ -15,6 +15,7 @@ with vimPlugins; {
     fogbell-vim
     idris-vim
     night-owl-vim
+    nord-vim
     onehalf-vim
     papercolor-theme
     presenting-vim

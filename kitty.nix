@@ -7,11 +7,12 @@ in with helpers; {
     clipboard_control = "write-clipboard write-primary no-append";
     macos_option_as_alt = "both";
 
-    font_family = "Operator Mono";
-    bold_font = "Bold";
-    italic_font = "Book Italic";
-    bold_italic_font = "Bold Italic";
-    font_size = "18.0";
+    font_family = "Operator Mono Book";
+    bold_font = "Operator Mono Bold";
+    italic_font = "Operator Mono Book Italic";
+    bold_italic_font = "Operator Mono Bold Italic";
+    font_size = "20.0";
+    disable_ligatures = "never";
 
     url_style = "single";
 
@@ -25,27 +26,27 @@ in with helpers; {
 
     # # Ayu Light
 
-    background = "#fafafa";
-    foreground = "#5b6673";
-    cursor = "#ff6900";
-    selection_background = "#f0ede4";
-    color0 = "#000000";
-    color8 = "#323232";
-    color1 = "#ff3333";
-    color9 = "#ff6565";
-    color2 = "#86b200";
-    color10 = "#b8e532";
-    color3 = "#f19618";
-    color11 = "#ffc849";
-    color4 = "#41a6d9";
-    color12 = "#73d7ff";
-    color5 = "#f07078";
-    color13 = "#ffa3aa";
-    color6 = "#4cbe99";
-    color14 = "#7ff0cb";
-    color7 = "#ffffff";
-    color15 = "#ffffff";
-    selection_foreground = "#fafafa";
+    # background = "#fafafa";
+    # foreground = "#5b6673";
+    # cursor = "#ff6900";
+    # selection_background = "#f0ede4";
+    # color0 = "#000000";
+    # color8 = "#323232";
+    # color1 = "#ff3333";
+    # color9 = "#ff6565";
+    # color2 = "#86b200";
+    # color10 = "#b8e532";
+    # color3 = "#f19618";
+    # color11 = "#ffc849";
+    # color4 = "#41a6d9";
+    # color12 = "#73d7ff";
+    # color5 = "#f07078";
+    # color13 = "#ffa3aa";
+    # color6 = "#4cbe99";
+    # color14 = "#7ff0cb";
+    # color7 = "#ffffff";
+    # color15 = "#ffffff";
+    # selection_foreground = "#fafafa";
 
     # # Solarized Light
     # background = "#fdf6e3";
@@ -141,5 +142,36 @@ in with helpers; {
 
     ##: white
 
+    # Nord theme - ported from https://github.com/arcticicestudio/nord-hyper
+    foreground = "#D8DEE9";
+    background = "#2E3440";
+    selection_foreground = "#000000";
+    selection_background = "#FFFACD";
+    url_color = "#0087BD";
+    cursor = "#81A1C1";
+    # black
+    color0 = "#3B4252";
+    color8 = "#4C566A";
+    # red
+    color1 = "#BF616A";
+    color9 = "#BF616A";
+    # green
+    color2 = "#A3BE8C";
+    color10 = "#A3BE8C";
+    # yellow
+    color3 = "#EBCB8B";
+    color11 = "#EBCB8B";
+    # blue
+    color4 = "#81A1C1";
+    color12 = "#81A1C1";
+    # magenta
+    color5 = "#B48EAD";
+    color13 = "#B48EAD";
+    # cyan
+    color6 = "#88C0D0";
+    color14 = "#8FBCBB";
+    # white
+    color7 = "#E5E9F0";
+    color15 = "#B48EAD";
   };
 }
