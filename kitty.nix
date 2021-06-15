@@ -7,10 +7,10 @@ in with helpers; {
     clipboard_control = "write-clipboard write-primary no-append";
     macos_option_as_alt = "both";
 
-    font_family = "Operator Mono Book";
-    bold_font = "Operator Mono Bold";
-    italic_font = "Operator Mono Book Italic";
-    bold_italic_font = "Operator Mono Bold Italic";
+    font_family = "Victor Mono Regular";
+    bold_font = "Victor Mono Bold";
+    italic_font = "Victor Mono Light Italic";
+    bold_italic_font = "Victor Mono Bold Italic";
     font_size = "20.0";
     disable_ligatures = "never";
 
@@ -24,7 +24,7 @@ in with helpers; {
     window_padding_width = "6.0";
     hide_window_decorations = "yes";
 
-    # # Ayu Light
+    # # # Ayu Light
 
     # background = "#fafafa";
     # foreground = "#5b6673";
@@ -48,28 +48,28 @@ in with helpers; {
     # color15 = "#ffffff";
     # selection_foreground = "#fafafa";
 
-    # # Solarized Light
-    # background = "#fdf6e3";
-    # foreground = "#52676f";
-    # cursor = "#52676f";
-    # selection_background = "#e9e2cb";
-    # color0 = "#e4e4e4";
-    # color8 = "#ffffd7";
-    # color1 = "#d70000";
-    # color9 = "#d75f00";
-    # color2 = "#5f8700";
-    # color10 = "#585858";
-    # color3 = "#af8700";
-    # color11 = "#626262";
-    # color4 = "#0087ff";
-    # color12 = "#808080";
-    # color5 = "#af005f";
-    # color13 = "#5f5faf";
-    # color6 = "#00afaf";
-    # color14 = "#8a8a8a";
-    # color7 = "#262626";
-    # color15 = "#1c1c1c";
-    # selection_foreground = "#fcf4dc";
+    # Solarized Light
+    background = "#fdf6e3";
+    foreground = "#52676f";
+    cursor = "#52676f";
+    selection_background = "#e9e2cb";
+    color0 = "#e4e4e4";
+    color8 = "#ffffd7";
+    color1 = "#d70000";
+    color9 = "#d75f00";
+    color2 = "#5f8700";
+    color10 = "#585858";
+    color3 = "#af8700";
+    color11 = "#626262";
+    color4 = "#0087ff";
+    color12 = "#808080";
+    color5 = "#af005f";
+    color13 = "#5f5faf";
+    color6 = "#00afaf";
+    color14 = "#8a8a8a";
+    color7 = "#262626";
+    color15 = "#1c1c1c";
+    selection_foreground = "#fcf4dc";
 
     # # Solarized Dark high contrast
     # background = "#001e26";
@@ -143,35 +143,35 @@ in with helpers; {
     ##: white
 
     # Nord theme - ported from https://github.com/arcticicestudio/nord-hyper
-    foreground = "#D8DEE9";
-    background = "#2E3440";
-    selection_foreground = "#000000";
-    selection_background = "#FFFACD";
-    url_color = "#0087BD";
-    cursor = "#81A1C1";
-    # black
-    color0 = "#3B4252";
-    color8 = "#4C566A";
-    # red
-    color1 = "#BF616A";
-    color9 = "#BF616A";
-    # green
-    color2 = "#A3BE8C";
-    color10 = "#A3BE8C";
-    # yellow
-    color3 = "#EBCB8B";
-    color11 = "#EBCB8B";
-    # blue
-    color4 = "#81A1C1";
-    color12 = "#81A1C1";
-    # magenta
-    color5 = "#B48EAD";
-    color13 = "#B48EAD";
-    # cyan
-    color6 = "#88C0D0";
-    color14 = "#8FBCBB";
-    # white
-    color7 = "#E5E9F0";
-    color15 = "#B48EAD";
+    # foreground = "#D8DEE9";
+    # background = "#2E3440";
+    # selection_foreground = "#000000";
+    # selection_background = "#FFFACD";
+    # url_color = "#0087BD";
+    # cursor = "#81A1C1";
+    # # black
+    # color0 = "#3B4252";
+    # color8 = "#4C566A";
+    # # red
+    # color1 = "#BF616A";
+    # color9 = "#BF616A";
+    # # green
+    # color2 = "#A3BE8C";
+    # color10 = "#A3BE8C";
+    # # yellow
+    # color3 = "#EBCB8B";
+    # color11 = "#EBCB8B";
+    # # blue
+    # color4 = "#81A1C1";
+    # color12 = "#81A1C1";
+    # # magenta
+    # color5 = "#B48EAD";
+    # color13 = "#B48EAD";
+    # # cyan
+    # color6 = "#88C0D0";
+    # color14 = "#8FBCBB";
+    # # white
+    # color7 = "#E5E9F0";
+    # color15 = "#B48EAD";
   };
 }

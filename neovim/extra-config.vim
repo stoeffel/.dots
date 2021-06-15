@@ -32,20 +32,19 @@ let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
-set bg=dark
+set bg=light
 " let ayucolor="light"
-" let g:neosolarized_italic = 1
-" let g:neosolarized_contrast = "high"
-" let g:neosolarized_visibility = "high"
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-let g:nord_underline = 1
-let g:nord_uniform_diff_background = 1
-let g:nord_cursor_line_number_background = 1
-colo nord
+let g:neosolarized_italic = 1
+let g:neosolarized_contrast = "high"
+let g:neosolarized_visibility = "high"
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
+" let g:nord_underline = 1
+" let g:nord_cursor_line_number_background = 1
+colo neosolarized
 
 " AIRLINE
-let g:airline_theme='nord'
+let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [
@@ -59,6 +58,13 @@ hi SignColumn guibg=NONE ctermbg=NONE
 hi Comment cterm=italic gui=italic
 hi VertSplit ctermbg=NONE guibg=NONE
 hi StatusLine guibg=NONE ctermbg=NONE
+
+let g:nnn#set_default_mappings = 0
+" Then set your own
+nnoremap <silent> <leader>nn :NnnPicker<CR>
+" Or override
+" Start nnn in the current file's directory
+nnoremap <leader>n :NnnPicker %:p:h<CR>
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()

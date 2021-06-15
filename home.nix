@@ -33,8 +33,10 @@ in {
     libcxx
     llvmPackages.libclang
     llvm_8
+    niv
     nix-prefetch-git
     nixfmt
+    nnn
     nodejs-12_x
     ormolu
     purescript
@@ -49,12 +51,17 @@ in {
     spago
     stack
     gotop
+    gitAndTools.gh
+    tmate
   ];
 
   home.file = {
     "/Applications/Alacritty.app".source =
       "${pkgs.alacritty}/Applications/Alacritty.app";
     ".config/nvim/coc-settings.json".source = ./neovim/coc-settings.json;
+    ".config/gotop/default.json".source = ./gotop.json;
+    "Library/Application Support/jesseduffield/lazygit/config.yml".source =
+      ./lazygit.yml;
     ".ignore".text = ''
       .git
     '';

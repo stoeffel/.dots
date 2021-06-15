@@ -4,11 +4,11 @@ let
   # `nixos-unstable`. It will link to a rev, which you should put here. Be
   # aware that if you put something newer/not exactly what Hydra built, you'll
   # have to compile EVERYTHING.
-  rev = "b2122214da8779a1aaf8e033867644e5efa63cc9";
+  rev = "f0efbe21f9ae1e17d1aca922708f1bdef605039d";
 
   # Generate this sha using the following command:
   # $ nix-prefetch-url --unpack --type sha256 https://github.com/NixOS/nixpkgs/archive/<rev>.tar.gz
-  sha256 = "0imjpkwv40x70pgl5k2fj2xzsxl44smh6wb4spy38y31shlm02aa";
+  sha256 = "0d3xyihm9f7x43vbrs1hi2fxchqi7b5jrwvvc7swhjvva1cyax1n";
   pkgsPath = builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
     sha256 = sha256;

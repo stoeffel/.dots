@@ -1,5 +1,8 @@
 { pkgs ? import <nixpkgs> { } }:
-let vimPlugins = import ./vimPlugins { inherit pkgs; };
+let
+  vimPlugins = import ./vimPlugins { inherit pkgs; };
+
+  unstable = (import ./unstable.nix).pkgs;
 in with pkgs.vimPlugins;
 with vimPlugins; {
   enable = true;
@@ -27,5 +30,6 @@ with vimPlugins; {
     vim-noctu
     vim-scala
     vim-textobj-user
+    unstable.vimPlugins.nnn-vim
   ];
 }
