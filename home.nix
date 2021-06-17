@@ -25,6 +25,8 @@ in {
     fpp
     ghc
     ghcid
+    gitAndTools.gh
+    gotop
     gzip
     haskellPackages.hpack
     hindent-imposter
@@ -50,8 +52,6 @@ in {
     similarity-sort
     spago
     stack
-    gotop
-    gitAndTools.gh
     tmate
   ];
 
@@ -62,6 +62,7 @@ in {
     ".config/gotop/default.json".source = ./gotop.json;
     "Library/Application Support/jesseduffield/lazygit/config.yml".source =
       ./lazygit.yml;
+    ".k9s/skin.yml".source = ./k9s_skin.yml;
     ".ignore".text = ''
       .git
     '';
