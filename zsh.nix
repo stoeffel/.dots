@@ -13,6 +13,8 @@ in {
     export PATH="$PATH:/usr/local/bin"
     export PATH="$PATH:$HOME/.cargo/bin"
     export PATH="$PATH:$HOME/.cabal/bin"
+    export PATH="$PATH:/bin"
+    export PATH="$PATH:/sbin"
     export BAT_THEME="OneHalfDark"
     export LANG=en_US.UTF-8
     export EDITOR=nvim

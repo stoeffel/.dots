@@ -2,14 +2,6 @@
   enable = true;
   settings = {
     add_newline = false;
-    # format = pkgs.lib.concatStrings [
-    #   "$directory"
-    #   "$git_branch"
-    #   "$git_state"
-    #   "$git_status"
-    #   "$line_break"
-    #   "$character"
-    # ];
     format = pkgs.lib.concatStringsSep "\n" [
       "[┌───────────────────](green) $git_branch$git_state $git_status"
       "[│](green)$directory"

@@ -7,12 +7,15 @@ gui:
   sidePanelWidth: 0.3333
   theme:
     lightTheme: false
+    selectedRangeBgColor:
+      - reverse
   commitLength:
     show: true
 git:
   paging:
     colorArg: always
     useConfig: false
+    pager: diff-so-fancy
   merging:
     manualCommit: false
   skipHookPrefix: 'WIP'

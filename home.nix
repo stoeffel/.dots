@@ -11,7 +11,9 @@ in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
+    neovim-nightly
     autojump
+    diff-so-fancy
     bat
     bfg-repo-cleaner
     cabal-install
@@ -54,7 +56,12 @@ in {
     stack
     tmate
   ];
-
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url =
+        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
+  ];
   home.file = {
     "/Applications/Alacritty.app".source =
       "${pkgs.alacritty}/Applications/Alacritty.app";
@@ -63,6 +70,7 @@ in {
     "Library/Application Support/jesseduffield/lazygit/config.yml".source =
       ./lazygit.yml;
     ".k9s/skin.yml".source = ./k9s_skin.yml;
+    ".tmate.conf".source = ./tmux/tmate.conf;
     ".ignore".text = ''
       .git
     '';
