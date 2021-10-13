@@ -1,17 +1,12 @@
-{ config, pkgs ? import <nixpkgs> { }, ... }:
+{ config, pkgs ? import <nixpkgs> { }, unstable ? import <unstable> { }, ... }:
 let
-  unstable = (import ./unstable.nix).pkgs;
-  gotop = unstable.gotop;
-  ormolu = unstable.ormolu;
-  spago = unstable.spago;
   hindent-imposter =
-    pkgs.callPackage ./ormolu/hindent-imposter.nix { inherit ormolu; };
+    pkgs.callPackage ./ormolu/hindent-imposter.nix { ormolu = pkgs.ormolu; };
   similarity-sort = pkgs.callPackage ./similarity-sort { };
 in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
-    neovim-nightly
     autojump
     diff-so-fancy
     bat
@@ -42,7 +37,6 @@ in {
     nixfmt
     nnn
     nodejs-12_x
-    ormolu
     purescript
     python3
     ripgrep
@@ -52,15 +46,8 @@ in {
     scala
     scalafmt
     similarity-sort
-    spago
     stack
     tmate
-  ];
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url =
-        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-    }))
   ];
   home.file = {
     "/Applications/Alacritty.app".source =
@@ -81,7 +68,10 @@ in {
     direnv = { enable = true; };
     git = import ./git.nix { inherit pkgs; };
     fzf = import ./fzf.nix { inherit pkgs; };
-    neovim = import ./neovim.nix { inherit pkgs; };
+    neovim = import ./neovim.nix {
+      inherit pkgs;
+      inherit unstable;
+    };
     starship = import ./starship.nix { inherit pkgs; };
     tmux = import ./tmux.nix { inherit pkgs; };
     zsh = import ./zsh.nix { inherit pkgs; };

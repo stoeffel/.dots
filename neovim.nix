@@ -1,11 +1,10 @@
-{ pkgs ? import <nixpkgs> { } }:
-let
-  vimPlugins = import ./vimPlugins { inherit pkgs; };
+{ pkgs ? import <nixpkgs> { }, unstable }:
+let vimPlugins = import ./vimPlugins { inherit pkgs; };
 
-  unstable = (import ./unstable.nix).pkgs;
 in with pkgs.vimPlugins;
 with vimPlugins; {
   enable = true;
+  package = unstable.neovim-unwrapped;
   viAlias = true;
   vimAlias = true;
   extraConfig = builtins.readFile ./neovim/extra-config.vim;
@@ -20,9 +19,12 @@ with vimPlugins; {
     fogbell-vim
     fzf-vim
     haskell-vim
+    hop-nvim
+    vim-nix
     idris-vim
     incsearch-vim
     neoformat
+    nvim-compe
     night-owl-vim
     nord-vim
     onehalf-vim
@@ -32,15 +34,14 @@ with vimPlugins; {
     tabular
     typewriter-vim
     unicode-vim
-    unstable.vimPlugins.nnn-vim
     vim-abolish
     vim-airline
     vim-airline-themes
     vim-commentary
     vim-dim
     vim-eunuch
-    unstable.plenary-nvim
-    unstable.gitsigns-nvim
+    plenary-nvim
+    gitsigns-nvim
     neoyank-vim
     neoterm
     vim-exchange

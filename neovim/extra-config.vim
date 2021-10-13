@@ -5,9 +5,9 @@ syntax on
 :scriptencoding utf-8
 let &showbreak = '↪ '
 set clipboard^=unnamed,unnamedplus
-set completefunc=emoji#complete
-set completeopt+=longest
-set completeopt-=preview
+" set completefunc=emoji#complete
+" set completeopt+=longest
+" set completeopt-=preview
 set cursorline
 set expandtab
 set hidden
@@ -48,7 +48,6 @@ let g:neoterm_autoinsert = 1
 let g:neoterm_autoscroll = 1
 let g:neoterm_default_mod = 'tab'
 let g:netrw_liststyle=1
-let g:polyglot_disabled = ['haskell']
 let g:startify_change_to_vcs_root = 1
 let g:startify_session_delete_buffers = 1
 let g:test#strategy = 'neoterm'
@@ -62,6 +61,7 @@ endif
 let g:mapleader=' '
 let g:maplocalleader='\'
 
+nnoremap <C-h> :HopWord<cr>
 " global search
 nnoremap <C-S> :Rg <C-R><C-W><CR>
 vnoremap <C-S> "yy<esc>:Rg <C-R>y<CR>
@@ -98,14 +98,10 @@ map /  <plug>(incsearch-forward)
 map ?  <plug>(incsearch-backward)
 map g/ <plug>(incsearch-stay)
 
-" git
-nnoremap <C-g> :MagitOnly<cr>
-nnoremap <C-h> :MerginalToggle<cr>
-
-" nvim-completion-manager
-" use <TAB> to select the popup menu
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" " nvim-completion-manager
+" " use <TAB> to select the popup menu
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " # Autocmds
 augroup customCommands
@@ -143,8 +139,8 @@ command! -bang -nargs=? -complete=dir Files
 set termguicolors
 
 let $FZF_DEFAULT_COMMAND = 'rg --files | similarity-sort'
+
 call plug#begin('~/.vim/plugged')
-  Plug 'ncm2/ncm2'
   if !has('nvim')
     Plug 'roxma/vim-hug-neovim-rpc'
   endif
@@ -152,8 +148,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'arthurxavierx/vim-caser'
   Plug 'bronson/vim-visual-star-search'      "  Easily search for the selected text
   Plug 'justinhoward/fzf-neoyank'
-  Plug 'roxma/ncm-elm-oracle'
-  Plug 'roxma/ncm-rct-complete'
   Plug 'vim-scripts/CursorLineCurrentWindow' "  Only show the cursorline in the active window
   Plug 'neovim/nvim-lspconfig'
 call plug#end()
@@ -295,6 +289,37 @@ function! s:IndTxtObj(inner)
   endif
   normal! $
 endfunction
+lua << EOF
+require('gitsigns').setup {
+  signs = {
+    add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+  },
+  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+  attach_to_untracked = true,
+  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  sign_priority = 6,
+  update_debounce = 100,
+  status_formatter = nil, -- Use default
+  max_file_length = 40000,
+  preview_config = {
+    -- Options passed to nvim_open_win
+    border = 'single',
+    style = 'minimal',
+    relative = 'cursor',
+    row = 0,
+    col = 1
+  },
+  yadm = {
+    enable = false
+  },
+}
+EOF
 if has('persistent_undo')
   set undofile	" keep an undo file (undo changes after closing)
   set undodir=~/.nvim-undo-dir
