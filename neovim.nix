@@ -18,21 +18,28 @@ with vimPlugins; {
     editorconfig-vim
     fogbell-vim
     fzf-vim
+    gitsigns-nvim
     haskell-vim
     hop-nvim
-    vim-nix
     idris-vim
     incsearch-vim
     neoformat
-    nvim-compe
+    neoterm
+    neoyank-vim
     night-owl-vim
     nord-vim
+    nvim-compe
     onehalf-vim
     papercolor-theme
+    plenary-nvim
     presenting-vim
     quickfix-reflector-vim
     tabular
+    telescope-nvim
     typewriter-vim
+    # nvim-treesitter
+    # nvim-treesitter-refactor
+    # nvim-treesitter-textobjects
     unicode-vim
     vim-abolish
     vim-airline
@@ -40,15 +47,12 @@ with vimPlugins; {
     vim-commentary
     vim-dim
     vim-eunuch
-    plenary-nvim
-    gitsigns-nvim
-    neoyank-vim
-    neoterm
     vim-exchange
     vim-fugitive
     vim-highlightedyank
     vim-localvimrc
     vim-markdown
+    vim-nix
     vim-noctu
     vim-polyglot
     vim-repeat

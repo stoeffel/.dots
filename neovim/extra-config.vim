@@ -66,15 +66,6 @@ nnoremap <C-h> :HopWord<cr>
 nnoremap <C-S> :Rg <C-R><C-W><CR>
 vnoremap <C-S> "yy<esc>:Rg <C-R>y<CR>
 
-" Perform fuzzy file searching
-nnoremap <C-P> mN:Files<cr>
-nnoremap <C-B> mN:Buffers<CR>
-nnoremap <C-/> mN:Lines<cr>
-nnoremap <leader><leader> mN:Commands<cr>
-nnoremap <leader>/ mN:History/<cr>
-nnoremap <leader>: mN:History:<cr>
-nnoremap <leader>? mN:Helptags<cr>
-
 " Autocompletion fzf
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
@@ -141,9 +132,7 @@ set termguicolors
 let $FZF_DEFAULT_COMMAND = 'rg --files | similarity-sort'
 
 call plug#begin('~/.vim/plugged')
-  if !has('nvim')
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
+  Plug 'nvim-telescope/telescope-fzf-native.nvim'
   Plug 'arithran/vim-delete-hidden-buffers'
   Plug 'arthurxavierx/vim-caser'
   Plug 'bronson/vim-visual-star-search'      "  Easily search for the selected text
@@ -189,7 +178,7 @@ let g:neosolarized_visibility = "high"
 colo neosolarized
 
 " AIRLINE
-let g:airline_theme='solarized'
+let g:airline_theme='atomic'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#default#layout = [
@@ -289,7 +278,26 @@ function! s:IndTxtObj(inner)
   endif
   normal! $
 endfunction
-lua << EOF
+" Using Lua functions
+" nnoremap <C-P> <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+" nnoremap <C-B> <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+" nnoremap <C-/> <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
+nnoremap <leader>/ <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
+nnoremap <leader>: <cmd>lua require('telescope.builtin').commands()<cr>
+" nnoremap <leader>/ <cmd>lua require('telescope.builtin').search_history()<cr>
+" nnoremap <leader>: <cmd>lua require('telescope.builtin').command_history()<cr>
+" nnoremap <leader>? <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+lua <<EOF
+require'telescope'.setup{
+  defaults = {
+    selection_caret = '->',
+  },
+}
 require('gitsigns').setup {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -320,7 +328,9 @@ require('gitsigns').setup {
   },
 }
 EOF
+
 if has('persistent_undo')
   set undofile	" keep an undo file (undo changes after closing)
   set undodir=~/.nvim-undo-dir
 endif
+

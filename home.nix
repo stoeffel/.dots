@@ -50,8 +50,6 @@ in {
     tmate
   ];
   home.file = {
-    "/Applications/Alacritty.app".source =
-      "${pkgs.alacritty}/Applications/Alacritty.app";
     ".config/nvim/coc-settings.json".source = ./neovim/coc-settings.json;
     ".config/gotop/default.json".source = ./gotop.json;
     "Library/Application Support/jesseduffield/lazygit/config.yml".source =
@@ -63,7 +61,6 @@ in {
     '';
   };
   programs = {
-    alacritty = import ./alacritty.nix { inherit pkgs; };
     kitty = import ./kitty.nix { inherit pkgs; };
     direnv = { enable = true; };
     git = import ./git.nix { inherit pkgs; };
