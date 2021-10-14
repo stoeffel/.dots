@@ -30,9 +30,6 @@ set wildignorecase
 
 " # Plugin configuration
 let g:EditorConfig_exclude_patterns = ['.git/COMMIT_EDITMSG']
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#vimagit#enabled = 1
-let g:airline_theme='atomic' " nice with almost all colorschemes
 let g:ale_elm_make_use_global=1
 let g:ale_linters = { 'haskell': ['hlint', 'hdevtools'] }
 let g:ale_sign_error = '✗'
@@ -48,10 +45,19 @@ let g:neoterm_autoinsert = 1
 let g:neoterm_autoscroll = 1
 let g:neoterm_default_mod = 'tab'
 let g:netrw_liststyle=1
-let g:startify_change_to_vcs_root = 1
-let g:startify_session_delete_buffers = 1
 let g:test#strategy = 'neoterm'
 let $FZF_DEFAULT_OPTS .= ' --no-height' " fixes fzf in nvim terminals
+
+let g:dashboard_default_executive ='telescope'
+let g:dashboard_custom_header = [
+\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\]
+
 
 if !isdirectory(expand(&undodir))
    call mkdir(expand(&undodir), 'p')
@@ -132,6 +138,10 @@ set termguicolors
 let $FZF_DEFAULT_COMMAND = 'rg --files | similarity-sort'
 
 call plug#begin('~/.vim/plugged')
+  Plug 'hoob3rt/lualine.nvim'
+  Plug 'kyazdani42/nvim-web-devicons' " lua
+  Plug 'ryanoasis/vim-devicons' " vimscript
+
   Plug 'nvim-telescope/telescope-fzf-native.nvim'
   Plug 'arithran/vim-delete-hidden-buffers'
   Plug 'arthurxavierx/vim-caser'
@@ -139,13 +149,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'justinhoward/fzf-neoyank'
   Plug 'vim-scripts/CursorLineCurrentWindow' "  Only show the cursorline in the active window
   Plug 'neovim/nvim-lspconfig'
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
-
-let g:startify_lists = [
-      \ { 'type': 'sessions',  'header': [   'Sessions']       },
-      \ { 'type': 'files',     'header': [   'MRU']            },
-      \ { 'type': 'commands',  'header': [   'Commands']       },
-      \ ]
 
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
@@ -166,25 +171,16 @@ let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
-set bg=light
+set bg=dark
 " let ayucolor="light"
-let g:neosolarized_italic = 1
-let g:neosolarized_contrast = "high"
-let g:neosolarized_visibility = "high"
+" let g:neosolarized_italic = 1
+" let g:neosolarized_contrast = "high"
+" let g:neosolarized_visibility = "high"
 " let g:nord_italic = 1
 " let g:nord_italic_comments = 1
 " let g:nord_underline = 1
-" let g:nord_cursor_line_number_background = 1
-colo neosolarized
-
-" AIRLINE
-let g:airline_theme='atomic'
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tabline#show_buffers=0
-let g:airline#extensions#default#layout = [
-    \ [ 'c' ],
-    \ []
-    \ ]
+let g:tokyonight_style = 'storm'
+colo tokyonight
 
 hi Normal guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE guifg=darkgrey
@@ -206,40 +202,8 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 nnoremap <C-U> mN:Buffers<CR>
 nnoremap <C-t> :!tmux split-window <cr><cr>
-
-"  COC 
-" =====
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 onoremap <silent>ai :<C-U>cal <SID>IndTxtObj(0)<CR>
 onoremap <silent>ii :<C-U>cal <SID>IndTxtObj(1)<CR>
@@ -327,7 +291,35 @@ require('gitsigns').setup {
     enable = false
   },
 }
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'tokyonight',
+    style = 'storm',
+    disabled_filetypes = {}
+  },
+  sections = {
+    lualine_a = { {'mode', format=function(mode) return ' ' end} },
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'branch'},
+    lualine_y = {'filetype'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
 EOF
+
 
 if has('persistent_undo')
   set undofile	" keep an undo file (undo changes after closing)

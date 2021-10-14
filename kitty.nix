@@ -49,27 +49,27 @@ in with helpers; {
     # selection_foreground = "#fafafa";
 
     # Solarized Light
-    background = "#fdf6e3";
-    foreground = "#52676f";
-    cursor = "#52676f";
-    selection_background = "#e9e2cb";
-    color0 = "#e4e4e4";
-    color8 = "#ffffd7";
-    color1 = "#d70000";
-    color9 = "#d75f00";
-    color2 = "#5f8700";
-    color10 = "#585858";
-    color3 = "#af8700";
-    color11 = "#626262";
-    color4 = "#0087ff";
-    color12 = "#808080";
-    color5 = "#af005f";
-    color13 = "#5f5faf";
-    color6 = "#00afaf";
-    color14 = "#8a8a8a";
-    color7 = "#262626";
-    color15 = "#1c1c1c";
-    selection_foreground = "#fcf4dc";
+    # background = "#fdf6e3";
+    # foreground = "#52676f";
+    # cursor = "#52676f";
+    # selection_background = "#e9e2cb";
+    # color0 = "#e4e4e4";
+    # color8 = "#ffffd7";
+    # color1 = "#d70000";
+    # color9 = "#d75f00";
+    # color2 = "#5f8700";
+    # color10 = "#585858";
+    # color3 = "#af8700";
+    # color11 = "#626262";
+    # color4 = "#0087ff";
+    # color12 = "#808080";
+    # color5 = "#af005f";
+    # color13 = "#5f5faf";
+    # color6 = "#00afaf";
+    # color14 = "#8a8a8a";
+    # color7 = "#262626";
+    # color15 = "#1c1c1c";
+    # selection_foreground = "#fcf4dc";
 
     # # Solarized Dark high contrast
     # background = "#001e26";
@@ -173,5 +173,119 @@ in with helpers; {
     # # white
     # color7 = "#E5E9F0";
     # color15 = "#B48EAD";
+
+    ## name: Tokyo Night Storm
+    ### license: MIT
+    ### author: Folke Lemaitre
+    ### upstream: https://github.com/folke/tokyonight.nvim/raw/main/extras/kitty_tokyonight_storm.conf
+    background = "#24283b";
+    foreground = "#c0caf5";
+    selection_background = "#364A82";
+    selection_foreground = "#c0caf5";
+    url_color = "#73daca";
+    cursor = "#c0caf5";
+    # Tabs
+    active_tab_background = "#7aa2f7";
+    active_tab_foreground = "#1f2335";
+    inactive_tab_background = "#292e42";
+    inactive_tab_foreground = "#545c7e";
+    #tab_bar_background #1D202F
+    # normal
+    color0 = "#1D202F";
+    color1 = "#f7768e";
+    color2 = "#9ece6a";
+    color3 = "#e0af68";
+    color4 = "#7aa2f7";
+    color5 = "#bb9af7";
+    color6 = "#7dcfff";
+    color7 = "#a9b1d6";
+    # bright
+    color8 = "#414868";
+    color9 = "#f7768e";
+    color10 = "#9ece6a";
+    color11 = "#e0af68";
+    color12 = "#7aa2f7";
+    color13 = "#bb9af7";
+    color14 = "#7dcfff";
+    color15 = "#c0caf5";
+    # extended colors = "
+    color16 = "#ff9e64";
+    color17 = "#db4b4b";
+
+    ### name: Tokyo Night Day
+    ### license = " MIT";
+    ### author: Folke Lemaitre
+    ### upstream: https://github.com = "folke/tokyonight.nvim/raw/main/extras/kitty_tokyonight_day.conf";
+    #background = "#e1e2e7";
+    #foreground = "#3760bf";
+    #selection_background = "#99a7df";
+    #selection_foreground = "#3760bf";
+    #url_color = "#387068";
+    #cursor = "#3760bf";
+    ## Tabs
+    #active_tab_background = "#2e7de9";
+    #active_tab_foreground = "#d4d6e4";
+    #inactive_tab_background = "#c4c8da";
+    #inactive_tab_foreground = "#8990b3";
+    ##tab_bar_background = "#e9e9ed";
+    ## normal
+    #color0 = "#e9e9ed";
+    #color1 = "#f52a65";
+    #color2 = "#587539";
+    #color3 = "#8c6c3e";
+    #color4 = "#2e7de9";
+    #color5 = "#9854f1";
+    #color6 = "#007197";
+    #color7 = "#6172b0";
+    ## bright
+    #color8 = "#a1a6c5";
+    #color9 = "#f52a65";
+    #color10 = "#587539";
+    #color11 = "#8c6c3e";
+    #color12 = "#2e7de9";
+    #color13 = "#9854f1";
+    #color14 = "#007197";
+    #color15 = "#3760bf";
+    ## extended colors = "
+    #color16 = "#b15c00";
+    #color17 = "#c64343";
+
+    ### name: Tokyo Night
+    ### license = " MIT";
+    ### author: Folke Lemaitre
+    ### upstream: https://github.com = "folke/tokyonight.nvim/raw/main/extras/kitty_tokyonight_night.conf";
+    #background = "#1a1b26";
+    #foreground #c0caf5 = "
+    #selection_background = "#33467C";
+    #selection_foreground = "#c0caf5";
+    #url_color = "#73daca";
+    #cursor = "#c0caf5";
+    ## Tabs
+    #active_tab_background = "#7aa2f7";
+    #active_tab_foreground = "#1f2335";
+    #inactive_tab_background = "#292e42";
+    #inactive_tab_foreground = "#545c7e";
+    ##tab_bar_background = "#15161E";
+    ## normal
+    #color0 = "#15161E";
+    #color1 = "#f7768e";
+    #color2 = "#9ece6a";
+    #color3 = "#e0af68";
+    #color4 = "#7aa2f7";
+    #color5 = "#bb9af7";
+    #color6 = "#7dcfff";
+    #color7 = "#a9b1d6";
+    ## bright
+    #color8 = "#414868";
+    #color9 = "#f7768e";
+    #color10 = "#9ece6a";
+    #color11 = "#e0af68";
+    #color12 = "#7aa2f7";
+    #color13 = "#bb9af7";
+    #color14 = "#7dcfff";
+    #color15 = "#c0caf5";
+    ## extended colors = "
+    #color16 = "#ff9e64";
+    #color17 = "#db4b4b";
   };
 }

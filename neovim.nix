@@ -42,8 +42,6 @@ with vimPlugins; {
     # nvim-treesitter-textobjects
     unicode-vim
     vim-abolish
-    vim-airline
-    vim-airline-themes
     vim-commentary
     vim-dim
     vim-eunuch
@@ -61,7 +59,7 @@ with vimPlugins; {
     vim-scriptease
     vim-sensible
     vim-speeddating
-    vim-startify
+    dashboard-nvim
     vim-surround
     vim-textobj-user
     vim-unimpaired
