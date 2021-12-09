@@ -1,4 +1,4 @@
-{ config, pkgs ? import <nixpkgs> { }, unstable ? import <unstable> { }, ... }:
+{ config, pkgs ? import <nixpkgs> { }, ... }:
 let
   hindent-imposter =
     pkgs.callPackage ./ormolu/hindent-imposter.nix { ormolu = pkgs.ormolu; };
@@ -7,6 +7,8 @@ in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
+    gifsicle
+    ffmpeg
     autojump
     diff-so-fancy
     bat
@@ -65,10 +67,7 @@ in {
     direnv = { enable = true; };
     git = import ./git.nix { inherit pkgs; };
     fzf = import ./fzf.nix { inherit pkgs; };
-    neovim = import ./neovim.nix {
-      inherit pkgs;
-      inherit unstable;
-    };
+    neovim = import ./neovim.nix { inherit pkgs; };
     starship = import ./starship.nix { inherit pkgs; };
     tmux = import ./tmux.nix { inherit pkgs; };
     zsh = import ./zsh.nix { inherit pkgs; };

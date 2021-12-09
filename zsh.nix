@@ -15,6 +15,8 @@ in {
     export PATH="$PATH:$HOME/.cabal/bin"
     export PATH="$PATH:/bin"
     export PATH="$PATH:/sbin"
+    export PATH="$PATH:$HOME/.npm-global/bin"
+    export PATH="$PATH:$HOME/.local/bin"
     export BAT_THEME="OneHalfDark"
     export LANG=en_US.UTF-8
     export EDITOR=nvim

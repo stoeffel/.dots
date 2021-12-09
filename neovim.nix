@@ -1,10 +1,10 @@
-{ pkgs ? import <nixpkgs> { }, unstable }:
+{ pkgs ? import <nixpkgs> { } }:
 let vimPlugins = import ./vimPlugins { inherit pkgs; };
 
 in with pkgs.vimPlugins;
 with vimPlugins; {
   enable = true;
-  package = unstable.neovim-unwrapped;
+  package = pkgs.neovim-nightly;
   viAlias = true;
   vimAlias = true;
   extraConfig = builtins.readFile ./neovim/extra-config.vim;
@@ -28,7 +28,6 @@ with vimPlugins; {
     neoyank-vim
     night-owl-vim
     nord-vim
-    nvim-compe
     onehalf-vim
     papercolor-theme
     plenary-nvim
@@ -42,7 +41,7 @@ with vimPlugins; {
     # nvim-treesitter-textobjects
     unicode-vim
     vim-abolish
-    vim-commentary
+    # vim-commentary
     vim-dim
     vim-eunuch
     vim-exchange

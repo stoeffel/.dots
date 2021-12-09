@@ -67,7 +67,6 @@ endif
 let g:mapleader=' '
 let g:maplocalleader='\'
 
-nnoremap <C-h> :HopWord<cr>
 " global search
 nnoremap <C-S> :Rg <C-R><C-W><CR>
 vnoremap <C-S> "yy<esc>:Rg <C-R>y<CR>
@@ -78,10 +77,6 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" fzf yank
-nnoremap <leader>y :FZFNeoyank<cr>
-nnoremap <leader>Y :FZFNeoyank " P<cr>
-vnoremap <leader>y :FZFNeoyankSelection<cr>
 
 " Terminal mappings
 nnoremap <silent> <C-T> :<c-u>exec v:count.'Ttoggle'<cr>
@@ -138,23 +133,122 @@ set termguicolors
 let $FZF_DEFAULT_COMMAND = 'rg --files | similarity-sort'
 
 call plug#begin('~/.vim/plugged')
+  Plug 'folke/which-key.nvim'
+  Plug 'APZelos/blamer.nvim'
+  Plug 'github/copilot.vim'
+  Plug 'kristijanhusak/orgmode.nvim'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kyazdani42/nvim-web-devicons' " lua
   Plug 'ryanoasis/vim-devicons' " vimscript
 
-  Plug 'nvim-telescope/telescope-fzf-native.nvim'
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
   Plug 'arithran/vim-delete-hidden-buffers'
   Plug 'arthurxavierx/vim-caser'
   Plug 'bronson/vim-visual-star-search'      "  Easily search for the selected text
   Plug 'justinhoward/fzf-neoyank'
   Plug 'vim-scripts/CursorLineCurrentWindow' "  Only show the cursorline in the active window
   Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+  Plug 'numToStr/Comment.nvim'
 call plug#end()
+lua <<EOF
+require("which-key").setup()
+EOF
 
+lua <<EOF
+local wk = require("which-key")
+wk.register({
+  ["?"] = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
+  [":"] = { "<cmd>Telescope commands<cr>", "Commands" },
+  ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },
+  [" "] = {
+    name = "Hop",
+    w = { "<cmd>HopWord<cr>", "Word" },
+    l = { "<cmd>HopLine<cr>", "Line" },
+    p = { "<cmd>HopPattern<cr>", "Pattern" },
+  },
+  f = {
+    name = "File",
+    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+    g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+    n = { "<cmd>enew<cr>", "New File" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+  },
+  y = {
+    name = "Yank",
+    y = { "<cmd>FZFNeoyank<cr>", "Search yanks" },
+    y = { "<cmd>FZFNeoyankSelection<cr>", "", mode = "v" },
+  },
+}, { prefix = "<leader>" })
+EOF
+
+let g:blamer_enabled = 1
+set completeopt=menu,menuone,noselect
+
+lua <<EOF
+require('Comment').setup()
+
+-- Setup nvim-cmp.
+local cmp = require'cmp'
+
+
+
+cmp.setup({
+  mapping = {
+    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    -- { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/`.
+cmp.setup.cmdline('/', {
+  completion = { autocomplete = true },
+  sources = {
+    { name = 'buffer',
+      opts = { keyword_pattern = [=[[^[:blank:]].*]=] }
+    },
+  }
+})
+
+-- Use cmdline & path source for ':'.
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+-- Setup lspconfig.
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- require('lspconfig')[%YOUR_LSP_SERVER%].setup {
+--   capabilities = capabilities
+-- }
+EOF
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-nnoremap <C-f> mN:Lines<cr>
 
 let g:ale_linters = { 'ruby': [], 'haskell': [], 'elm': [] }
 let g:ale_set_highlights = 0
@@ -171,7 +265,7 @@ let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
-set bg=dark
+set bg=light
 " let ayucolor="light"
 " let g:neosolarized_italic = 1
 " let g:neosolarized_contrast = "high"
@@ -179,7 +273,7 @@ set bg=dark
 " let g:nord_italic = 1
 " let g:nord_italic_comments = 1
 " let g:nord_underline = 1
-let g:tokyonight_style = 'storm'
+let g:tokyonight_style = 'day'
 colo tokyonight
 
 hi Normal guibg=NONE ctermbg=NONE
@@ -190,20 +284,12 @@ hi VertSplit ctermbg=NONE guibg=NONE
 hi StatusLine guibg=NONE ctermbg=NONE
 
 let g:nnn#set_default_mappings = 0
-" Then set your own
-nnoremap <silent> <leader>nn :NnnPicker<CR>
-" Or override
-" Start nnn in the current file's directory
-nnoremap <leader>n :NnnPicker %:p:h<CR>
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
-
-nnoremap <C-U> mN:Buffers<CR>
-nnoremap <C-t> :!tmux split-window <cr><cr>
 
 onoremap <silent>ai :<C-U>cal <SID>IndTxtObj(0)<CR>
 onoremap <silent>ii :<C-U>cal <SID>IndTxtObj(1)<CR>
@@ -242,26 +328,38 @@ function! s:IndTxtObj(inner)
   endif
   normal! $
 endfunction
-" Using Lua functions
-" nnoremap <C-P> <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-" nnoremap <C-B> <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-" nnoremap <C-/> <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
-nnoremap <leader>/ <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
-nnoremap <leader>: <cmd>lua require('telescope.builtin').commands()<cr>
-" nnoremap <leader>/ <cmd>lua require('telescope.builtin').search_history()<cr>
-" nnoremap <leader>: <cmd>lua require('telescope.builtin').command_history()<cr>
-" nnoremap <leader>? <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 lua <<EOF
+local actions = require("telescope.actions")
 require'telescope'.setup{
   defaults = {
     selection_caret = '->',
+    layout_strategy = 'flex',
+    layout_config = {
+      horizontal = {
+        preview_width = 0.3,
+      },
+    },
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+    }
+  },
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<c-d>"] = actions.delete_buffer
+        },
+      }
+    },
   },
 }
+require('telescope').load_extension('fzf')
 require('gitsigns').setup {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -296,7 +394,7 @@ require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'tokyonight',
-    style = 'storm',
+    style = 'day',
     disabled_filetypes = {}
   },
   sections = {
