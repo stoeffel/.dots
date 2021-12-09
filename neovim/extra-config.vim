@@ -67,58 +67,21 @@ endif
 let g:mapleader=' '
 let g:maplocalleader='\'
 
-" global search
-nnoremap <C-S> :Rg <C-R><C-W><CR>
-vnoremap <C-S> "yy<esc>:Rg <C-R>y<CR>
-
 " Autocompletion fzf
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-
-" Terminal mappings
-nnoremap <silent> <C-T> :<c-u>exec v:count.'Ttoggle'<cr>
-tnoremap <silent> <C-T> <C-\><C-n>:<c-u>exec v:count.'Ttoggle'<cr>
-tnoremap <C-[> <C-\><C-n>
-tnoremap <C-O> <C-\><C-n>`N
-
-
 " Hightlight all incremental search results
 map /  <plug>(incsearch-forward)
 map ?  <plug>(incsearch-backward)
 map g/ <plug>(incsearch-stay)
 
-" " nvim-completion-manager
-" " use <TAB> to select the popup menu
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" # Autocmds
 augroup customCommands
   autocmd!
-  " Elm key bindings
-  autocmd FileType elm nmap <buffer> <localleader>m :ElmMake<cr>
-  autocmd FileType elm nmap <buffer> <localleader>M :ElmMakeMain<cr>
-  autocmd FileType elm nmap <buffer> <localleader>t :ElmTest<cr>
-  autocmd FileType elm nmap <buffer> <localleader>r :ElmRepl<cr>
-  autocmd FileType elm nmap <buffer> <localleader>d :ElmShowDocs<cr>
-  autocmd FileType elm nmap <buffer> <localleader>D :ElmBrowseDocs<cr>
-  autocmd FileType elm set tabstop=4
-  autocmd FileType elm set shiftwidth=4
-  nmap <silent> <localleader>e <Plug>(ale_detail)
-  nmap <silent> <localleader>s :TestNearest<CR>
-  nmap <silent> <localleader>t :TestFile<CR>
-  nmap <silent> <localleader>a :TestSuite<CR>
-  nmap <silent> <localleader>l :TestLast<CR>
-  nmap <silent> <localleader>g :TestVisit<CR>
   autocmd BufWritePre * Neoformat
 augroup END
-
-" # Commands
-command! ReloadConfig execute "source ~/.config/nvim/init.vim"
-
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --hidden --column --line-number --no-heading --color=always '.shellescape(<q-args>).'| tr -d "\017"', 1,
@@ -156,16 +119,55 @@ call plug#begin('~/.vim/plugged')
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   Plug 'numToStr/Comment.nvim'
 call plug#end()
-lua <<EOF
-require("which-key").setup()
-EOF
+
+let g:blamer_enabled = 1
+set completeopt=menu,menuone,noselect
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+let g:ale_linters = { 'ruby': [], 'haskell': [], 'elm': [] }
+let g:ale_set_highlights = 0
+
+let g:neoformat_enabled_json = []
+let g:neoformat_enabled_ruby = []
+let g:neoformat_enabled_sass = []
+let g:neoformat_nix_nixfmt = { 'exe': 'nixfmt', 'stdin': 1 }
+let g:neoformat_enabled_nix = ['nixfmt']
+let g:neoformat_enabled_agda = []
+let g:neoformat_enabled_purescript = ['purty']
+
+let g:vim_markdown_fenced_languages = ['haskell']
+let g:vim_markdown_folding_disabled = 1
+
+set showtabline=0
+set bg=light
+" let ayucolor="light"
+" let g:neosolarized_italic = 1
+" let g:neosolarized_contrast = "high"
+" let g:neosolarized_visibility = "high"
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
+" let g:nord_underline = 1
+let g:tokyonight_style = 'day'
+colo tokyonight
+
+hi Normal guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE ctermbg=NONE guifg=darkgrey
+hi SignColumn guibg=NONE ctermbg=NONE
+hi Comment cterm=italic gui=italic
+hi VertSplit ctermbg=NONE guibg=NONE
+hi StatusLine guibg=NONE ctermbg=NONE
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
 
 lua <<EOF
+require("which-key").setup()
 local wk = require("which-key")
+
 wk.register({
-  ["?"] = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
-  [":"] = { "<cmd>Telescope commands<cr>", "Commands" },
-  ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },
   [" "] = {
     name = "Hop",
     w = { "<cmd>HopWord<cr>", "Word" },
@@ -176,9 +178,16 @@ wk.register({
     name = "File",
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-    g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
     n = { "<cmd>enew<cr>", "New File" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+  },
+  s = {
+    name = "Search",
+    g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+    w = { function()
+      local cursor_word = vim.fn.expand("<cword>")
+      vim.cmd("Telescope grep_string search=" .. cursor_word)
+    end, "Word" },
   },
   y = {
     name = "Yank",
@@ -186,18 +195,11 @@ wk.register({
     y = { "<cmd>FZFNeoyankSelection<cr>", "", mode = "v" },
   },
 }, { prefix = "<leader>" })
-EOF
 
-let g:blamer_enabled = 1
-set completeopt=menu,menuone,noselect
-
-lua <<EOF
 require('Comment').setup()
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
-
-
 
 cmp.setup({
   mapping = {
@@ -241,95 +243,6 @@ cmp.setup.cmdline(':', {
   })
 })
 
--- Setup lspconfig.
--- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- require('lspconfig')[%YOUR_LSP_SERVER%].setup {
---   capabilities = capabilities
--- }
-EOF
-
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
-let g:ale_linters = { 'ruby': [], 'haskell': [], 'elm': [] }
-let g:ale_set_highlights = 0
-
-let g:neoformat_enabled_json = []
-let g:neoformat_enabled_ruby = []
-let g:neoformat_enabled_sass = []
-let g:neoformat_nix_nixfmt = { 'exe': 'nixfmt', 'stdin': 1 }
-let g:neoformat_enabled_nix = ['nixfmt']
-let g:neoformat_enabled_agda = []
-let g:neoformat_enabled_purescript = ['purty']
-
-let g:vim_markdown_fenced_languages = ['haskell']
-let g:vim_markdown_folding_disabled = 1
-
-set showtabline=0
-set bg=light
-" let ayucolor="light"
-" let g:neosolarized_italic = 1
-" let g:neosolarized_contrast = "high"
-" let g:neosolarized_visibility = "high"
-" let g:nord_italic = 1
-" let g:nord_italic_comments = 1
-" let g:nord_underline = 1
-let g:tokyonight_style = 'day'
-colo tokyonight
-
-hi Normal guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE guifg=darkgrey
-hi SignColumn guibg=NONE ctermbg=NONE
-hi Comment cterm=italic gui=italic
-hi VertSplit ctermbg=NONE guibg=NONE
-hi StatusLine guibg=NONE ctermbg=NONE
-
-let g:nnn#set_default_mappings = 0
-
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-
-onoremap <silent>ai :<C-U>cal <SID>IndTxtObj(0)<CR>
-onoremap <silent>ii :<C-U>cal <SID>IndTxtObj(1)<CR>
-vnoremap <silent>ai :<C-U>cal <SID>IndTxtObj(0)<CR><Esc>gv
-vnoremap <silent>ii :<C-U>cal <SID>IndTxtObj(1)<CR><Esc>gv
-
-function! s:IndTxtObj(inner)
-  let curline = line(".")
-  let lastline = line("$")
-  let i = indent(line(".")) - &shiftwidth * (v:count1 - 1)
-  let i = i < 0 ? 0 : i
-  if getline(".") =~ "^\\s*$"
-    return
-  endif
-  let p = line(".") - 1
-  let nextblank = getline(p) =~ "^\\s*$"
-  while p > 0 && (nextblank || indent(p) >= i )
-    -
-    let p = line(".") - 1
-    let nextblank = getline(p) =~ "^\\s*$"
-  endwhile
-  if (!a:inner)
-    -
-  endif
-  normal! 0V
-  call cursor(curline, 0)
-  let p = line(".") + 1
-  let nextblank = getline(p) =~ "^\\s*$"
-  while p <= lastline && (nextblank || indent(p) >= i )
-    +
-    let p = line(".") + 1
-    let nextblank = getline(p) =~ "^\\s*$"
-  endwhile
-  if (!a:inner)
-    +
-  endif
-  normal! $
-endfunction
-
-lua <<EOF
 local actions = require("telescope.actions")
 require'telescope'.setup{
   defaults = {
@@ -418,9 +331,7 @@ require('lualine').setup {
 }
 EOF
 
-
 if has('persistent_undo')
   set undofile	" keep an undo file (undo changes after closing)
   set undodir=~/.nvim-undo-dir
 endif
-
