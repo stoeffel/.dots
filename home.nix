@@ -19,6 +19,9 @@ in {
     dhall
     dhall-json
     elmPackages.elm-live
+    elmPackages.elm-language-server
+    haskell-language-server
+    haskellPackages.ghcide
     fasd
     fira-code
     fpp

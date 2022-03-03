@@ -20,7 +20,7 @@ in {
     export BAT_THEME="OneHalfDark"
     export LANG=en_US.UTF-8
     export EDITOR=nvim
-    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    # . "$HOME/.nix-profile/etc/profile.d/nix.sh"
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
   '';
   dotDir = ".config/zsh";

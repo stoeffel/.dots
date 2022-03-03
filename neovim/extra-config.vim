@@ -15,7 +15,7 @@ set mouse=a
 set noswapfile
 set number
 set path=**
-set shell=/bin/bash " required by gitgutter plugin
+set shell=zsh
 set updatetime=100  " ensures gitgutter updates every 100ms
 set shiftround
 set shiftwidth=2
@@ -96,12 +96,16 @@ set termguicolors
 let $FZF_DEFAULT_COMMAND = 'rg --files | similarity-sort'
 
 call plug#begin('~/.vim/plugged')
+  Plug 'kyazdani42/nvim-web-devicons' " lua
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'akinsho/bufferline.nvim'
+  Plug 'akinsho/toggleterm.nvim'
+  Plug 'wlangstroth/vim-racket'
   Plug 'folke/which-key.nvim'
   Plug 'APZelos/blamer.nvim'
   Plug 'github/copilot.vim'
   Plug 'kristijanhusak/orgmode.nvim'
   Plug 'hoob3rt/lualine.nvim'
-  Plug 'kyazdani42/nvim-web-devicons' " lua
   Plug 'ryanoasis/vim-devicons' " vimscript
 
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -131,6 +135,8 @@ let g:neoformat_enabled_json = []
 let g:neoformat_enabled_ruby = []
 let g:neoformat_enabled_sass = []
 let g:neoformat_nix_nixfmt = { 'exe': 'nixfmt', 'stdin': 1 }
+let g:neoformat_scheme_raco = { 'exe': 'raco', 'args': ['fmt', '-i'], 'stdin': 1 }
+let g:neoformat_enabled_scheme = ['raco']
 let g:neoformat_enabled_nix = ['nixfmt']
 let g:neoformat_enabled_agda = []
 let g:neoformat_enabled_purescript = ['purty']
@@ -164,8 +170,74 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 lua <<EOF
+require'nvim-web-devicons'.setup{}
 require("which-key").setup()
 local wk = require("which-key")
+require("toggleterm").setup()
+require("bufferline").setup{
+  direction = 'float',
+}
+
+require('nvim-tree').setup({
+  buffer_auto_close = true,
+  auto_close = true,
+  hijack_netrw = true,
+  open_on_tab = true,
+})
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({
+  cmd = "lazygit",
+  dir = "git_dir",
+  direction = "float",
+  float_opts = {
+    border = "double",
+  },
+  -- function to run on opening the terminal
+  on_open = function(term)
+    vim.cmd("startinsert!")
+    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
+  end,
+  -- function to run on closing the terminal
+  on_close = function(term)
+    vim.cmd("Closing terminal")
+  end,
+})
+
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+
+function rspec_test_file()
+  local path = vim.fn.expand('%')
+  return require('toggleterm').exec(('rspec %s'):format(path), 1)
+end
+function rubocop_file()
+  local path = vim.fn.expand('%')
+  return require('toggleterm').exec(('bundle exec rubocop %s -a'):format(path), 1)
+end
+
+function rspec_test_line()
+  local path = vim.fn.expand('%')
+  local lnum = vim.fn.line('.')
+  return require('toggleterm').exec(('rspec %s:%d'):format(path, lnum), 1)
+end
+
+vim.cmd('autocmd FileType ruby lua whichkeyRuby()')
+
+_G.whichkeyRuby = function()
+  local wk = require("which-key")
+  wk.register({
+    r = {
+      name = "Ruby",
+      t = {
+        name = "Test",
+        f = { "<cmd>lua rspec_test_file()<cr>", "File" },
+        l = { "<cmd>lua rspec_test_line()<cr>", "Line" },
+      },
+      l = { "<cmd>lua rubocop_file()<cr>", "lint" },
+    },
+  }, { prefix = "<leader>" })
+end
 
 wk.register({
   [" "] = {
@@ -183,16 +255,29 @@ wk.register({
   },
   s = {
     name = "Search",
-    g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+    l = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
     w = { function()
       local cursor_word = vim.fn.expand("<cword>")
       vim.cmd("Telescope grep_string search=" .. cursor_word)
     end, "Word" },
+    f = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },
   },
   y = {
     name = "Yank",
     y = { "<cmd>FZFNeoyank<cr>", "Search yanks" },
     y = { "<cmd>FZFNeoyankSelection<cr>", "", mode = "v" },
+  },
+  t = {
+    name = "Term",
+    t = { "<cmd>exe v:count1 . \"ToggleTerm direction=float\"<cr>", "Toggle Term" },
+    l = { "<cmd>lua _lazygit_toggle()<CR>", "Lazygit" },
+  },
+  b = {
+    name = "Buffer",
+    o = { "<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>", "Close Other Buffers" },
+    c = { "<cmd>BufferLinePickClose<cr>", "Pick Close Buffer" },
+    r = { "<cmd>BufferLineCloseRight<cr>", "Close Buffers Right" },
+    l = { "<cmd>BufferLineCloseLeft<cr>", "Close Buffers Left" },
   },
 }, { prefix = "<leader>" })
 
@@ -260,7 +345,7 @@ require'telescope'.setup{
       override_generic_sorter = true,  -- override the generic sorter
       override_file_sorter = true,     -- override the file sorter
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-    }
+    },
   },
   pickers = {
     buffers = {
@@ -329,6 +414,7 @@ require('lualine').setup {
   tabline = {},
   extensions = {}
 }
+
 EOF
 
 if has('persistent_undo')

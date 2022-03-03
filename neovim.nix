@@ -63,5 +63,9 @@ with vimPlugins; {
     vim-textobj-user
     vim-unimpaired
     vim-vinegar
+    # ( pkgs.vimUtils.buildVimPlugin {
+    #   name = "elm-pair";
+    #   src = ~/src/tmp/elm-pair/neovim-plugin;
+    # })
   ];
 }

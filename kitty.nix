@@ -7,10 +7,10 @@ in with helpers; {
     clipboard_control = "write-clipboard write-primary no-append";
     macos_option_as_alt = "both";
 
-    font_family = "Victor Mono Regular";
-    bold_font = "Victor Mono Bold";
-    italic_font = "Victor Mono Light Italic";
-    bold_italic_font = "Victor Mono Bold Italic";
+    font_family = "FiraCode Nerd Font Mono Regular";
+    bold_font = "FiraCode Nerd Font Mono Bold";
+    italic_font = "FiraCode Nerd Font Mono Light Italic";
+    bold_italic_font = "FiraCode Nerd Font Mono Bold Italic";
     font_size = "20.0";
     disable_ligatures = "never";
 
