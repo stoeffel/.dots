@@ -12,12 +12,12 @@ in with helpers; {
       padding.y = 35;
     };
     font = {
-      size = 18.0;
-      normal.family = "Operator Mono";
-      normal.style = "Book";
+      size = 14.0;
+      normal.family = "FiraCode Nerd Font Mono";
+      normal.style = "Regular";
       bold.style = "Bold";
-      italic.style = "Book Italic";
+      italic.style = "Light Italic";
       bold_italic.style = "Bold Italic";
     };
-  } // readJSON ./alacritty/one-dark.json;
+  } // readJSON ./alacritty/nightfox.json;
 }

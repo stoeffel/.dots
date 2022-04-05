@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> { } }:
 let
-  statusbar = builtins.readFile ./tmux/statusbar.conf;
+  statusbar = builtins.readFile ./tmux/dawnfox.conf;
   keybindings = builtins.readFile ./tmux/keybindings.conf;
   helpers = pkgs.callPackage ./helpers.nix { };
 in with helpers; {
@@ -18,8 +18,10 @@ in with helpers; {
     fpp
   ];
   extraConfig = unlines [
+    "set -g status-position top"
     ''set -g default-terminal "xterm-256color"''
     "set -g mouse on"
+
     keybindings
     statusbar
   ];

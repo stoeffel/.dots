@@ -6,11 +6,12 @@ gui:
   skipUnstageLineWarning: false
   sidePanelWidth: 0.3333
   theme:
-    lightTheme: false
+    lightTheme: true
     selectedRangeBgColor:
       - reverse
   commitLength:
     show: true
+  showFileTree: false
 git:
   paging:
     colorArg: always
@@ -20,12 +21,16 @@ git:
     manualCommit: false
   skipHookPrefix: 'WIP'
   autoFetch: true
+  log:
+    # one of always, never, when-maximised
+    # this determines whether the git graph is rendered in the commits panel
+    showGraph: 'never'
 update:
   method: prompt # can be: prompt | background | never
   days: 14 # how often a update is checked for
 reporting: 'undetermined' # one of: 'on' | 'off' | 'undetermined'
 splashUpdatesIndex: 0
-confirmOnQuit: false
+confirmOnQuit: true
 keybinding:
   universal:
     quit: 'q'

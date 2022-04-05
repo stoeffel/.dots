@@ -1,6 +1,12 @@
 { pkgs ? import <nixpkgs> { } }:
-let vimPlugins = import ./vimPlugins { inherit pkgs; };
-
+let
+  vimPlugins = import ./vimPlugins { inherit pkgs; };
+  elm-pair = pkgs.fetchFromGitHub {
+    owner = "jwoudenberg";
+    repo = "elm-pair";
+    rev = "release-14";
+    sha256 = "F/SPN64pZ1/vYStlI7pyqQJMoq9wReVlvJ2CRsN/+yU=";
+  };
 in with pkgs.vimPlugins;
 with vimPlugins; {
   enable = true;
@@ -67,5 +73,6 @@ with vimPlugins; {
     #   name = "elm-pair";
     #   src = ~/src/tmp/elm-pair/neovim-plugin;
     # })
+    (import elm-pair).neovim-plugin
   ];
 }

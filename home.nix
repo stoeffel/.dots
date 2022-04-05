@@ -7,6 +7,9 @@ in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
+    difftastic
+    ncdu
+    entr
     gifsicle
     ffmpeg
     autojump
@@ -28,7 +31,7 @@ in {
     ghc
     ghcid
     gitAndTools.gh
-    gotop
+    # gotop
     gzip
     haskellPackages.hpack
     hindent-imposter
@@ -46,6 +49,7 @@ in {
     python3
     ripgrep
     ruby
+    rubyPackages.solargraph
     rustup
     sbt
     scala
@@ -74,5 +78,6 @@ in {
     starship = import ./starship.nix { inherit pkgs; };
     tmux = import ./tmux.nix { inherit pkgs; };
     zsh = import ./zsh.nix { inherit pkgs; };
+    alacritty = import ./alacritty.nix { inherit pkgs; };
   };
 }

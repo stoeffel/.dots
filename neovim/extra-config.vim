@@ -22,7 +22,6 @@ set shiftwidth=2
 set splitbelow
 set splitright
 set tabstop=2
-set termguicolors
 set ttyfast " removed in nvim
 set undodir=~/tmp/vim/undo
 set undofile
@@ -96,8 +95,10 @@ set termguicolors
 let $FZF_DEFAULT_COMMAND = 'rg --files | similarity-sort'
 
 call plug#begin('~/.vim/plugged')
+
   Plug 'kyazdani42/nvim-web-devicons' " lua
-  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'MunifTanjim/nui.nvim'
+  Plug 'nvim-neo-tree/neo-tree.nvim'
   Plug 'akinsho/bufferline.nvim'
   Plug 'akinsho/toggleterm.nvim'
   Plug 'wlangstroth/vim-racket'
@@ -121,7 +122,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+  Plug 'EdenEast/nightfox.nvim', { 'branch': 'main' } " Vim-Plug
   Plug 'numToStr/Comment.nvim'
+  Plug 'sindrets/diffview.nvim'
 call plug#end()
 
 let g:blamer_enabled = 1
@@ -145,19 +148,8 @@ let g:vim_markdown_fenced_languages = ['haskell']
 let g:vim_markdown_folding_disabled = 1
 
 set showtabline=0
-set bg=light
-" let ayucolor="light"
-" let g:neosolarized_italic = 1
-" let g:neosolarized_contrast = "high"
-" let g:neosolarized_visibility = "high"
-" let g:nord_italic = 1
-" let g:nord_italic_comments = 1
-" let g:nord_underline = 1
-let g:tokyonight_style = 'day'
-colo tokyonight
 
 hi Normal guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE guifg=darkgrey
 hi SignColumn guibg=NONE ctermbg=NONE
 hi Comment cterm=italic gui=italic
 hi VertSplit ctermbg=NONE guibg=NONE
@@ -170,6 +162,23 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 lua <<EOF
+
+require('nightfox').setup({
+  options = {
+    dim_inactive = true,   -- Non focused panes set to alternative background
+    terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+    styles = {
+      comments = "italic",
+      keywords = "bold",
+      types = "italic,bold"
+    }
+  }
+})
+vim.cmd("colorscheme dawnfox")
+
+require'lspconfig'.elmls.setup{}
+require'lspconfig'.hls.setup{}
+require'lspconfig'.solargraph.setup{}
 require'nvim-web-devicons'.setup{}
 require("which-key").setup()
 local wk = require("which-key")
@@ -178,11 +187,19 @@ require("bufferline").setup{
   direction = 'float',
 }
 
-require('nvim-tree').setup({
-  buffer_auto_close = true,
-  auto_close = true,
-  hijack_netrw = true,
-  open_on_tab = true,
+require'diffview'.setup {}
+require("neo-tree").setup({
+  close_if_last_window = true,
+  popup_border_style = "rounded",
+  enable_git_status = true,
+  enable_diagnostics = true,
+  filesystem = {
+    hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
+    follow_current_file = false,
+    window = {
+      position = "float",
+    }
+  },
 })
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
@@ -253,6 +270,7 @@ wk.register({
     n = { "<cmd>enew<cr>", "New File" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
   },
+  d = { "<cmd>NeoTreeReveal<cr>", "NeoTree" },
   s = {
     name = "Search",
     l = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
@@ -278,6 +296,18 @@ wk.register({
     c = { "<cmd>BufferLinePickClose<cr>", "Pick Close Buffer" },
     r = { "<cmd>BufferLineCloseRight<cr>", "Close Buffers Right" },
     l = { "<cmd>BufferLineCloseLeft<cr>", "Close Buffers Left" },
+  },
+  l = {
+    name = "LSP",
+    r = { "<cmd>Telescope lsp_references<cr>",	"Lists LSP references for word under the cursor" },
+    d = { "<cmd>Telescope lsp_document_symbols<cr>",	"Lists LSP document symbols in the current buffer" },
+    w = { "<cmd>Telescope lsp_workspace_symbols<cr>",	"Lists LSP document symbols in the current workspace" },
+    c = { "<cmd>Telescope lsp_code_actions<cr>",	"Lists any LSP actions for the word under the cursor, that can be triggered with <cr>" },
+    C = { "<cmd>Telescope lsp_range_code_actions<cr>",	"Lists any LSP actions for a given range, that can be triggered with <cr>" },
+    D = { "<cmd>Telescope diagnostics<cr>",	"Lists Diagnostics for all open buffers or a specific buffer. Use option bufnr=0 for current buffer." },
+    i = { "<cmd>Telescope lsp_implementations<cr>",	"Goto the implementation of the word under the cursor if there's only one, otherwise show all options in Telescope" },
+    d = { "<cmd>Telescope lsp_definitions<cr>",	"Goto the definition of the word under the cursor, if there's only one, otherwise show all options in Telescope" },
+    t = { "<cmd>Telescope lsp_type_definitions<cr>",	"Goto the definition of the type of the word under the cursor, if there's only one, otherwise show all options in Telescope" },
   },
 }, { prefix = "<leader>" })
 
@@ -391,28 +421,8 @@ require('gitsigns').setup {
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
-    style = 'day',
     disabled_filetypes = {}
   },
-  sections = {
-    lualine_a = { {'mode', format=function(mode) return ' ' end} },
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'branch'},
-    lualine_y = {'filetype'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
 }
 
 EOF

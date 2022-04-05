@@ -34,5 +34,8 @@ in with helpers; {
       process = "git-lfs filter-process";
     };
     credential.helper = "osxkeychain";
+    diff.tool = "nvimdiff";
+    merge.tool = "nvimdiff";
+    "difftool \"nvimdiff\"" = { cmd = ''nvim -d "$LOCAL" "$REMOTE"''; };
   };
 }
