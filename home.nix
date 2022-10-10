@@ -6,6 +6,7 @@ let
 in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  home.stateVersion = "22.05";
   home.packages = with pkgs; [
     difftastic
     ncdu
@@ -44,7 +45,7 @@ in {
     nix-prefetch-git
     nixfmt
     nnn
-    nodejs-12_x
+    nodejs
     purescript
     python3
     ripgrep

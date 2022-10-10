@@ -73,9 +73,9 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Hightlight all incremental search results
-map /  <plug>(incsearch-forward)
-map ?  <plug>(incsearch-backward)
-map g/ <plug>(incsearch-stay)
+" map /  <plug>(incsearch-forward)
+" map ?  <plug>(incsearch-backward)
+" map g/ <plug>(incsearch-stay)
 
 augroup customCommands
   autocmd!
@@ -96,9 +96,9 @@ let $FZF_DEFAULT_COMMAND = 'rg --files | similarity-sort'
 
 call plug#begin('~/.vim/plugged')
 
+
   Plug 'kyazdani42/nvim-web-devicons' " lua
   Plug 'MunifTanjim/nui.nvim'
-  Plug 'nvim-neo-tree/neo-tree.nvim'
   Plug 'akinsho/bufferline.nvim'
   Plug 'akinsho/toggleterm.nvim'
   Plug 'wlangstroth/vim-racket'
@@ -108,6 +108,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'kristijanhusak/orgmode.nvim'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'ryanoasis/vim-devicons' " vimscript
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'pwntester/octo.nvim'
 
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
   Plug 'arithran/vim-delete-hidden-buffers'
@@ -162,6 +164,39 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 lua <<EOF
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
+require("nvim-tree").setup({
+  update_cwd = false,
+  prefer_startup_root = true,
+  sync_root_with_cwd = false,
+  sort_by = "case_sensitive",
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
+    change_dir = {
+      enable = false,
+      global = false,
+      restrict_above_cwd = true,
+    },
+  },
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+  },
+})
+
+require"octo".setup()
 
 require('nightfox').setup({
   options = {
@@ -174,7 +209,7 @@ require('nightfox').setup({
     }
   }
 })
-vim.cmd("colorscheme dawnfox")
+vim.cmd("colorscheme terafox")
 
 require'lspconfig'.elmls.setup{}
 require'lspconfig'.hls.setup{}
@@ -188,19 +223,6 @@ require("bufferline").setup{
 }
 
 require'diffview'.setup {}
-require("neo-tree").setup({
-  close_if_last_window = true,
-  popup_border_style = "rounded",
-  enable_git_status = true,
-  enable_diagnostics = true,
-  filesystem = {
-    hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
-    follow_current_file = false,
-    window = {
-      position = "float",
-    }
-  },
-})
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
   cmd = "lazygit",
@@ -256,8 +278,10 @@ _G.whichkeyRuby = function()
   }, { prefix = "<leader>" })
 end
 
+require'hop'.setup()
 wk.register({
-  [" "] = {
+  [" "] = { "<cmd>HopWord<cr>", "Hop Word" },
+  ["h"] = {
     name = "Hop",
     w = { "<cmd>HopWord<cr>", "Word" },
     l = { "<cmd>HopLine<cr>", "Line" },
@@ -416,6 +440,41 @@ require('gitsigns').setup {
   yadm = {
     enable = false
   },
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    map('n', ']c', function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    map('n', '[c', function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+    map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+    map('n', '<leader>hS', gs.stage_buffer)
+    map('n', '<leader>hu', gs.undo_stage_hunk)
+    map('n', '<leader>hR', gs.reset_buffer)
+    map('n', '<leader>hp', gs.preview_hunk)
+    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+    map('n', '<leader>tb', gs.toggle_current_line_blame)
+    map('n', '<leader>hd', gs.diffthis)
+    map('n', '<leader>hD', function() gs.diffthis('~') end)
+    map('n', '<leader>td', gs.toggle_deleted)
+
+    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+  end
 }
 
 require('lualine').setup {

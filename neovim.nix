@@ -4,13 +4,14 @@ let
   elm-pair = pkgs.fetchFromGitHub {
     owner = "jwoudenberg";
     repo = "elm-pair";
-    rev = "release-14";
-    sha256 = "F/SPN64pZ1/vYStlI7pyqQJMoq9wReVlvJ2CRsN/+yU=";
+    rev = "release-latest";
+    sha256 = "kRcuOxBOiQ4ljGnTcYoQqJhwvPwLKw4XwciG1pnWec4=";
   };
+
 in with pkgs.vimPlugins;
 with vimPlugins; {
   enable = true;
-  package = pkgs.neovim-nightly;
+  package = pkgs.neovim-unwrapped;
   viAlias = true;
   vimAlias = true;
   extraConfig = builtins.readFile ./neovim/extra-config.vim;
@@ -28,7 +29,7 @@ with vimPlugins; {
     haskell-vim
     hop-nvim
     idris-vim
-    incsearch-vim
+    # incsearch-vim
     neoformat
     neoterm
     neoyank-vim
@@ -42,7 +43,7 @@ with vimPlugins; {
     tabular
     telescope-nvim
     typewriter-vim
-    # nvim-treesitter
+    nvim-treesitter
     # nvim-treesitter-refactor
     # nvim-treesitter-textobjects
     unicode-vim

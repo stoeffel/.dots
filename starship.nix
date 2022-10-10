@@ -18,11 +18,22 @@
     git_branch = {
       style = "italic fg:244";
       symbol = "";
-      format = "[$symbol$branch]($style)";
+      format = "[$symbol $branch]($style)";
     };
     git_status = {
       style = "fg:241";
       format = "([$all_status$ahead_behind]($style))";
+      conflicted = " ";
+      ahead = " ";
+      behind = " ";
+      diverged = " ";
+      up_to_date = " ";
+      untracked = "﬒ ";
+      stashed = "";
+      modified = " ";
+      staged = "[++($count)](green)";
+      renamed = "凜 ";
+      deleted = " ";
     };
     git_state = {
       format = "[($state( $progress_current of $progress_total))]($style) ";
