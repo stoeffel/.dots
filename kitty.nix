@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> { } }:
 let
   helpers = pkgs.callPackage ./helpers.nix { };
-  colorscheme = builtins.readFile ./kitty/terafox.conf;
+  colorscheme = builtins.readFile ./kitty/dawnfox.conf;
 in with helpers; {
   enable = true;
   extraConfig = colorscheme;

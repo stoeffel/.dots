@@ -6,7 +6,7 @@ gui:
   skipUnstageLineWarning: false
   sidePanelWidth: 0.3333
   theme:
-    lightTheme: false
+    lightTheme: true
     selectedRangeBgColor:
       - reverse
   commitLength:

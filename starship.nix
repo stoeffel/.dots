@@ -3,8 +3,7 @@
   settings = {
     add_newline = false;
     format = pkgs.lib.concatStringsSep "\n" [
-      "[┌───────────────────](green) $git_branch$git_state $git_status"
-      "[│](green)$directory"
+      "[┌──](green)$directory[──](green)$git_branch$git_state $git_status"
       "[└─](green) "
     ];
     directory = { style = "fg:246"; };

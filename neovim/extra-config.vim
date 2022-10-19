@@ -209,7 +209,7 @@ require('nightfox').setup({
     }
   }
 })
-vim.cmd("colorscheme terafox")
+vim.cmd("colorscheme dawnfox")
 
 require'lspconfig'.elmls.setup{}
 require'lspconfig'.hls.setup{}

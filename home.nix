@@ -24,6 +24,7 @@ in {
     dhall-json
     elmPackages.elm-live
     elmPackages.elm-language-server
+    elmPackages.elm-json
     haskell-language-server
     haskellPackages.ghcide
     fasd
@@ -45,7 +46,8 @@ in {
     nix-prefetch-git
     nixfmt
     nnn
-    nodejs
+    nodejs-14_x
+    nodePackages.node-gyp
     purescript
     python3
     ripgrep

@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> { } }:
 let
-  statusbar = builtins.readFile ./tmux/terafox.conf;
+  statusbar = builtins.readFile ./tmux/dawnfox.conf;
   keybindings = builtins.readFile ./tmux/keybindings.conf;
   helpers = pkgs.callPackage ./helpers.nix { };
 in with helpers; {
