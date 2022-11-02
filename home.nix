@@ -3,11 +3,13 @@ let
   hindent-imposter =
     pkgs.callPackage ./ormolu/hindent-imposter.nix { ormolu = pkgs.ormolu; };
   similarity-sort = pkgs.callPackage ./similarity-sort { };
+  pkgsUnstable = import <nixpkgs-unstable> { };
 in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.stateVersion = "22.05";
   home.packages = with pkgs; [
+    pkgsUnstable.helix
     difftastic
     ncdu
     entr
@@ -24,6 +26,7 @@ in {
     dhall-json
     elmPackages.elm-live
     elmPackages.elm-language-server
+    elmPackages.elm-format
     elmPackages.elm-json
     haskell-language-server
     haskellPackages.ghcide
@@ -49,7 +52,6 @@ in {
     nodejs-14_x
     nodePackages.node-gyp
     purescript
-    python3
     ripgrep
     ruby
     rubyPackages.solargraph
@@ -62,12 +64,12 @@ in {
     tmate
   ];
   home.file = {
-    ".config/nvim/coc-settings.json".source = ./neovim/coc-settings.json;
     ".config/gotop/default.json".source = ./gotop.json;
     "Library/Application Support/jesseduffield/lazygit/config.yml".source =
       ./lazygit.yml;
     ".k9s/skin.yml".source = ./k9s_skin.yml;
     ".tmate.conf".source = ./tmux/tmate.conf;
+    ".config/helix/config.toml".source = ./helix.toml;
     ".ignore".text = ''
       .git
     '';

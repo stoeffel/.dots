@@ -8,10 +8,11 @@ let
     sha256 = "kRcuOxBOiQ4ljGnTcYoQqJhwvPwLKw4XwciG1pnWec4=";
   };
 
-in with pkgs.vimPlugins;
+  pkgsUnstable = import <nixpkgs-unstable> { };
+in with pkgsUnstable.vimPlugins;
 with vimPlugins; {
   enable = true;
-  package = pkgs.neovim-unwrapped;
+  package = pkgsUnstable.neovim-unwrapped;
   viAlias = true;
   vimAlias = true;
   extraConfig = builtins.readFile ./neovim/extra-config.vim;
@@ -20,7 +21,6 @@ with vimPlugins; {
     ale
     ayu-vim
     base16-vim
-    coc-nvim
     dhall-vim
     editorconfig-vim
     fogbell-vim
@@ -58,7 +58,7 @@ with vimPlugins; {
     vim-markdown
     vim-nix
     vim-noctu
-    vim-polyglot
+    # vim-polyglot
     vim-repeat
     vim-rhubarb
     vim-scala

@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> { } }:
 let
   helpers = pkgs.callPackage ./helpers.nix { };
-  colorscheme = builtins.readFile ./kitty/dawnfox.conf;
+  colorscheme = builtins.readFile ./kitty/rose_pine_moon.conf;
 in with helpers; {
   enable = true;
   extraConfig = colorscheme;

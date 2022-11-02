@@ -1,0 +1,16 @@
+theme = "rose_pine_moon"
+
+[editor]
+cursorline = true
+color-modes	= true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "selections", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "position", "file-type"]
+separator = "│"

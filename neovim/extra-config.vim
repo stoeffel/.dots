@@ -127,6 +127,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'EdenEast/nightfox.nvim', { 'branch': 'main' } " Vim-Plug
   Plug 'numToStr/Comment.nvim'
   Plug 'sindrets/diffview.nvim'
+  Plug 'MunifTanjim/nui.nvim'
+  " Plug 'rcarriga/nvim-notify'
+  Plug 'folke/noice.nvim'
+
 call plug#end()
 
 let g:blamer_enabled = 1
@@ -198,21 +202,27 @@ require("nvim-tree").setup({
 
 require"octo".setup()
 
-require('nightfox').setup({
-  options = {
-    dim_inactive = true,   -- Non focused panes set to alternative background
-    terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-    styles = {
-      comments = "italic",
-      keywords = "bold",
-      types = "italic,bold"
-    }
-  }
-})
-vim.cmd("colorscheme dawnfox")
+vim.cmd("colorscheme tokyonight")
 
+require'noice'.setup(
+  {
+    views = {
+      cmdline_popup = {
+        border = {
+          style = "rounded",
+          padding = { 0, 1 },
+        },
+        position = {
+          row = 2,
+          col = "50%",
+        },
+      },
+    },
+  }
+)
 require'lspconfig'.elmls.setup{}
 require'lspconfig'.hls.setup{}
+require'lspconfig'.vimls.setup{}
 require'lspconfig'.solargraph.setup{}
 require'nvim-web-devicons'.setup{}
 require("which-key").setup()
@@ -481,6 +491,15 @@ require('lualine').setup {
   options = {
     icons_enabled = true,
     disabled_filetypes = {}
+  },
+  sections = {
+    lualine_x = {
+      {
+        require("noice").api.statusline.mode.get,
+        cond = require("noice").api.statusline.mode.has,
+        color = { fg = "#ff9e64" },
+      }
+    },
   },
 }
 

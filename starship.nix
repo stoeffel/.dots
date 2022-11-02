@@ -3,9 +3,13 @@
   settings = {
     add_newline = false;
     format = pkgs.lib.concatStringsSep "\n" [
-      "[┌──](green)$directory[──](green)$git_branch$git_state $git_status"
-      "[└─](green) "
+      "[╭───](bright-purple)$directory$fill(bright-purple)$git_branch$git_state [$git_status](cyan)[─┤](bright-purple)"
+      "[╰──┤ ](bright-purple) "
     ];
+    fill = {
+      symbol = "─";
+      style = "bright-purple";
+    };
     directory = { style = "fg:246"; };
     character = {
       success_symbol = "λ";
