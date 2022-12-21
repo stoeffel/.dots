@@ -43,7 +43,6 @@ with vimPlugins; {
     tabular
     telescope-nvim
     typewriter-vim
-    nvim-treesitter
     # nvim-treesitter-refactor
     # nvim-treesitter-textobjects
     unicode-vim

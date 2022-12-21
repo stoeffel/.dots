@@ -9,6 +9,8 @@ in {
   programs.home-manager.enable = true;
   home.stateVersion = "22.05";
   home.packages = with pkgs; [
+    pkgsUnstable.rectangle
+    tree-sitter
     pkgsUnstable.helix
     difftastic
     ncdu
@@ -20,7 +22,6 @@ in {
     bat
     bfg-repo-cleaner
     cabal-install
-    clang_8
     coreutils
     dhall
     dhall-json
@@ -37,14 +38,13 @@ in {
     ghcid
     gitAndTools.gh
     # gotop
+    gcc
     gzip
     haskellPackages.hpack
     hindent-imposter
     jq
     lazygit
     libcxx
-    llvmPackages.libclang
-    llvm_8
     niv
     nix-prefetch-git
     nixfmt
@@ -62,6 +62,7 @@ in {
     similarity-sort
     stack
     tmate
+    kak-lsp
   ];
   home.file = {
     ".config/gotop/default.json".source = ./gotop.json;
@@ -84,5 +85,6 @@ in {
     tmux = import ./tmux.nix { inherit pkgs; };
     zsh = import ./zsh.nix { inherit pkgs; };
     alacritty = import ./alacritty.nix { inherit pkgs; };
+    kakoune = import ./kakoune.nix { inherit pkgs; };
   };
 }

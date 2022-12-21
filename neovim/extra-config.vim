@@ -97,6 +97,9 @@ let $FZF_DEFAULT_COMMAND = 'rg --files | similarity-sort'
 call plug#begin('~/.vim/plugged')
 
 
+  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'nvim-treesitter/nvim-treesitter-refactor'
   Plug 'kyazdani42/nvim-web-devicons' " lua
   Plug 'MunifTanjim/nui.nvim'
   Plug 'akinsho/bufferline.nvim'
@@ -129,7 +132,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'sindrets/diffview.nvim'
   Plug 'MunifTanjim/nui.nvim'
   " Plug 'rcarriga/nvim-notify'
-  Plug 'folke/noice.nvim'
+  " Plug 'folke/noice.nvim'
+  Plug 'rose-pine/neovim', { 'as': 'rose-pine' }
+  Plug 'stevearc/aerial.nvim'
 
 call plug#end()
 
@@ -172,6 +177,89 @@ lua <<EOF
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+require('nvim-treesitter.configs').setup({
+  -- A list of parser names, or "all"
+  ensure_installed = "all",
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incnemental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+    enable = true,
+  },
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        -- You can optionally set descriptions to the mappings (used in the desc parameter of
+        -- nvim_buf_set_keymap) which plugins like which-key display
+        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+      },
+      -- You can choose the select mode (default is charwise 'v')
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * method: eg 'v' or 'o'
+      -- and should return the mode ('v', 'V', or '<c-v>') or a table
+      -- mapping query_strings to modes.
+      selection_modes = {
+        ['@parameter.outer'] = 'v', -- charwise
+        ['@function.outer'] = 'V', -- linewise
+        ['@class.outer'] = '<c-v>', -- blockwise
+      },
+      -- If you set this to `true` (default is `false`) then any textobject is
+      -- extended to include preceding or succeeding whitespace. Succeeding
+      -- whitespace has priority in order to act similarly to eg the built-in
+      -- `ap`.
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * selection_mode: eg 'v'
+      -- and should return true of false
+      include_surrounding_whitespace = true,
+    },
+  },
+  refactor = {
+    highlight_current_scope = { enable = true },
+    navigation = {
+      enable = true,
+      keymaps = {
+        goto_definition = "gnd",
+        list_definitions = "gnD",
+        list_definitions_toc = "gO",
+        goto_next_usage = "<a-*>",
+        goto_previous_usage = "<a-#>",
+      },
+    },
+    smart_rename = {
+      enable = true,
+      keymaps = {
+        smart_rename = "grr",
+      },
+    },
+  },
+})
 require("nvim-tree").setup({
   update_cwd = false,
   prefer_startup_root = true,
@@ -201,25 +289,34 @@ require("nvim-tree").setup({
 })
 
 require"octo".setup()
+require('aerial').setup({
+  -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+  open_automatic = false,
+  show_guides = true,
+  on_attach = function(bufnr)
+    -- Jump forwards/backwards with '{' and '}'
+    vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', {buffer = bufnr})
+    vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', {buffer = bufnr})
+  end
+})
+vim.cmd("colorscheme tokyonight-day")
 
-vim.cmd("colorscheme tokyonight")
-
-require'noice'.setup(
-  {
-    views = {
-      cmdline_popup = {
-        border = {
-          style = "rounded",
-          padding = { 0, 1 },
-        },
-        position = {
-          row = 2,
-          col = "50%",
-        },
-      },
-    },
-  }
-)
+-- require'noice'.setup(
+--   {
+--     views = {
+--       cmdline_popup = {
+--         border = {
+--           style = "rounded",
+--           padding = { 0, 1 },
+--         },
+--         position = {
+--           row = 2,
+--           col = "50%",
+--         },
+--       },
+--     },
+--   }
+-- )
 require'lspconfig'.elmls.setup{}
 require'lspconfig'.hls.setup{}
 require'lspconfig'.vimls.setup{}
@@ -303,6 +400,7 @@ wk.register({
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     n = { "<cmd>enew<cr>", "New File" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    t = { "<cmd>Telescope treesitter<cr>", "treesitter" },
   },
   d = { "<cmd>NeoTreeReveal<cr>", "NeoTree" },
   s = {
@@ -342,6 +440,7 @@ wk.register({
     i = { "<cmd>Telescope lsp_implementations<cr>",	"Goto the implementation of the word under the cursor if there's only one, otherwise show all options in Telescope" },
     d = { "<cmd>Telescope lsp_definitions<cr>",	"Goto the definition of the word under the cursor, if there's only one, otherwise show all options in Telescope" },
     t = { "<cmd>Telescope lsp_type_definitions<cr>",	"Goto the definition of the type of the word under the cursor, if there's only one, otherwise show all options in Telescope" },
+    o = { "<cmd>AerialToggle!<CR>", "Display code outline" },
   },
 }, { prefix = "<leader>" })
 
@@ -492,15 +591,15 @@ require('lualine').setup {
     icons_enabled = true,
     disabled_filetypes = {}
   },
-  sections = {
-    lualine_x = {
-      {
-        require("noice").api.statusline.mode.get,
-        cond = require("noice").api.statusline.mode.has,
-        color = { fg = "#ff9e64" },
-      }
-    },
-  },
+  -- sections = {
+  --   lualine_x = {
+  --     {
+  --       require("noice").api.statusline.mode.get,
+  --       cond = require("noice").api.statusline.mode.has,
+  --       color = { fg = "#ff9e64" },
+  --     }
+  --   },
+  -- },
 }
 
 EOF

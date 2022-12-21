@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> { } }:
 let
-  statusbar = builtins.readFile ./tmux/statusbar.conf;
+  statusbar = builtins.readFile ./tmux/tokyonight-day.tmux;
   keybindings = builtins.readFile ./tmux/keybindings.conf;
   helpers = pkgs.callPackage ./helpers.nix { };
 in with helpers; {
