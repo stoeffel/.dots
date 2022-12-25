@@ -9,6 +9,7 @@ in {
   programs.home-manager.enable = true;
   home.stateVersion = "22.05";
   home.packages = with pkgs; [
+    pkgsUnstable.zsh-forgit
     pkgsUnstable.rectangle
     tree-sitter
     pkgsUnstable.helix

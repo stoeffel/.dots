@@ -1,13 +1,13 @@
 { }: {
   l = "ls -lah";
-  a = "git add";
-  all = "git add .";
-  ammend = "git commit --ammend";
-  br = "git checkout -b";
-  c = "git commit";
-  ca = "git commit --ammend";
-  co = "git checkout";
-  com = "git checkout master";
+  # a = "git add";
+  # all = "git add .";
+  # ammend = "git commit --ammend";
+  # br = "git checkout -b";
+  # c = "git commit";
+  # ca = "git commit --ammend";
+  # co = "git checkout";
+  # com = "git checkout master";
   force = "git push --force-with-lease";
   g = "git";
   mux = "tmuxinator";
@@ -19,4 +19,22 @@
   v = "nvim";
   yoda = "force";
   k = "awsudo kubectl";
+  glo = "git-forgit log";
+  gd = "git-forgit diff";
+  ga = "git-forgit add";
+  grh = "git-forgit reset_head";
+  gi = "git-forgit ignore";
+  gcf = "git-forgit checkout_file";
+  gcb = "git-forgit checkout_branch";
+  gbd = "git-forgit branch_delete";
+  gct = "git-forgit checkout_tag";
+  gco = "git-forgit checkout_commit";
+  grc = "git-forgit revert_commit";
+  gclean = "git-forgit clean";
+  gss = "git-forgit stash_show";
+  gsp = "git-forgit stash_push";
+  gcp = "git-forgit cherry_pick";
+  grb = "git-forgit rebase";
+  gbl = "git-forgit blame";
+  gfu = "git-forgit fixup";
 }
