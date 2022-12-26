@@ -27,7 +27,6 @@ with vimPlugins; {
     fzf-vim
     gitsigns-nvim
     haskell-vim
-    hop-nvim
     idris-vim
     # incsearch-vim
     neoformat

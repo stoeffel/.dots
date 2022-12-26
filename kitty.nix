@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> { } }:
 let
   helpers = pkgs.callPackage ./helpers.nix { };
-  colorscheme = builtins.readFile ./kitty/tokyonight-day.conf;
+  colorscheme = builtins.readFile ./kitty/moonfly.conf;
 in with helpers; {
   enable = true;
   extraConfig = colorscheme;

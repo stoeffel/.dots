@@ -11,6 +11,8 @@ in {
   home.packages = with pkgs; [
     pkgsUnstable.zsh-forgit
     pkgsUnstable.rectangle
+    pkgsUnstable.git-quick-stats
+    thefuck
     tree-sitter
     pkgsUnstable.helix
     difftastic
