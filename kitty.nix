@@ -29,7 +29,7 @@ in with helpers; {
     enable_audio_bell = "no";
     visual_bell_duration = "0.0";
 
-    window_padding_width = "6.0";
+    window_padding_width = "12.0";
     hide_window_decorations = "yes";
   };
 }

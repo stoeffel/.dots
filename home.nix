@@ -9,6 +9,7 @@ in {
   programs.home-manager.enable = true;
   home.stateVersion = "22.05";
   home.packages = with pkgs; [
+    pkgsUnstable.jqp
     pkgsUnstable.zsh-forgit
     pkgsUnstable.rectangle
     pkgsUnstable.git-quick-stats
@@ -66,6 +67,7 @@ in {
     stack
     tmate
     kak-lsp
+    sad
   ];
   home.file = {
     ".config/gotop/default.json".source = ./gotop.json;
