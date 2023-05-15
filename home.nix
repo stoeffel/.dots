@@ -53,7 +53,7 @@ in {
     nix-prefetch-git
     nixfmt
     nnn
-    nodejs-14_x
+    nodejs-16_x
     nodePackages.node-gyp
     purescript
     ripgrep
